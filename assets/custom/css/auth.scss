@@ -94,6 +94,11 @@ body {
       #password_type_toggle {
         cursor: pointer;
       }
+
+
+      .loading {
+        display: none;
+      }
     }
   }
 }
