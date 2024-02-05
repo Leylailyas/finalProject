@@ -1,5 +1,5 @@
 const customAxios = axios.create({
-    baseURL: 'https://65bb600c52189914b5bbe6c6.mockapi.io/api/project',
+    baseURL: 'https://65be7c1fdcfcce42a6f28d63.mockapi.io',
 });
 
 

@@ -53,7 +53,7 @@ $(function () {
                 .then(res => {
                     showSuccess('Uğurla qeydiyyatdan keçdiniz')
                     console.log('res', res)
-                    redirecTo('panel')
+                    redirecTo('panel.html')
                 })
                 .catch(err => {
                     showError('Xəta')
@@ -91,7 +91,7 @@ $(function () {
 
             if (user) {
                 showSuccess('Uğurla giriş etdiniz')
-                redirecTo('panel')
+                redirecTo('panel.html')
             } else {
                 showError('E-mail və ya şifrə yanlışdır')
             }
