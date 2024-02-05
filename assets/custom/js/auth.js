@@ -79,7 +79,6 @@ $(function () {
             await customAxios.get('/users')
                 .then(res => {
                     users = res.data
-                    console.log('users', users)
                 })
                 .catch(err => {
                     console.log('err', err)
@@ -90,14 +89,18 @@ $(function () {
             const user = users.find(user => user.email == email && user.password == password)
 
             if (user) {
+                localStorage.setItem('user', JSON.stringify(user))
                 showSuccess('Uğurla giriş etdiniz')
-                redirecTo('panel.html')
+                if (user.is_admin) {
+                    redirecTo('admin/panel.html')
+                } else {
+                    redirecTo('user/panel.html')
+                }
             } else {
                 showError('E-mail və ya şifrə yanlışdır')
             }
         }
     })
-
 
     $('#password_type_toggle').on('click', function () {
         const passwordInputType = $('#password').attr('type')
@@ -113,9 +116,13 @@ $(function () {
         let hours = date.getHours().toString()
         let minutes = date.getMinutes().toString()
         const day = date.getDate()
-        const weekDay = date.getDay()
+        let weekDay = date.getDay()
         const month = date.getMonth()
         const year = date.getFullYear()
+
+        if (weekDay == 0) {
+            weekDay = 7
+        }
 
         if (minutes.length < 2) {
             minutes = '0' + minutes
@@ -154,8 +161,9 @@ $(function () {
 
         $('#clock').html(`${hours}:${minutes}`)
         $('#date').html(`${weekDayTranslation}, ${monthTranslation} ${day}, ${year}`)
-        setInterval(() => setDate(), 10000)
     }
 
     setDate()
+    setInterval(() => setDate(), 10000)
+
 })

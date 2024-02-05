@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../assets/custom/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../assets/common/toastify/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="../assets/common/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/custom/css/panel.css">
+    <title>openSIS | Admin Panel</title>
+</head>
+<body>
+<div class="page-wrapper">
+    <aside>
+        <div class="sidebar">
+            <div class="header">
+                <div class="logo">
+                    <a href="panel.html">
+                        <img class="full-logo" src="../assets/custom/images/logo-2.jpeg" alt="">
+                        <img class="short-logo" src="../assets/custom/images/short-logo.jpeg" alt="">
+                    </a>
+                </div>
+                <button type="button" id="sidebar-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1em"
+                         height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                         style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);">
+                        <path opacity=".3" d="M8.5 8.62v6.76L5.12 12L8.5 8.62" fill="currentColor"></path>
+                        <path d="M8.5 8.62v6.76L5.12 12L8.5 8.62M10 5l-7 7l7 7V5zm4 0v14l7-7l-7-7z"
+                              fill="currentColor"></path>
+                    </svg>
+                </button>
+                <span class="vl"></span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active">
+                        <a class="nav-link" href="#">
+                        <span class="nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                 style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                    opacity=".3" d="M6.26 9L12 13.47L17.74 9L12 4.53z" fill="currentColor"></path><path
+                                    d="M19.37 12.8l-7.38 5.74l-7.37-5.73L3 14.07l9 7l9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9L12 4.53L17.74 9L12 13.47z"
+                                    fill="currentColor"></path></svg>
+                        </span>
+                            <span class="nav-title">
+                            Dashboard
+                        </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#l">
+                        <span class="nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1000 1000"><path
+                                    fill="currentColor"
+                                    d="M196.099.156C88.379.156.219 88.317.219 196.036v607.851c0 107.72 88.16 195.849 195.88 195.849H803.95c107.72 0 195.849-88.129 195.849-195.849V196.036C999.799 88.316 911.67.156 803.95.156zm338.012 186.777c94.026 7.596 148.647 68.316 155.146 145.948c5.05 39.953 3.637 69.6-2.127 91.418c53.633 1.773 116.39 25.822 120.388 113.098v85.911c-5.561 75.026-32.259 167.679-169.225 187.339c-30.84 4.427-65.452 1.464-110.345 1.157c-45.139-1.19-84.496-.975-118.917-.344c-138.941 2.545-215.468-58.535-216.185-189.28c-1.116-44.494.65-92.734.501-152.581c-.558-37.925-.768-77.544.094-114.381c.267-7.189-.671-15.069 1.22-22.807c5.98-84.295 73.682-133.698 152.706-144.665l186.745-.814zM377.963 304.192c-80.036 13.104-83.991 104.44 0 115.726h151.924c80.036-13.104 83.991-104.44 0-115.726zm-34.508 252.82c-82.395 12.791-83.607 116.536 2.941 127.271l279.1 1.001c81.695-12.682 81.454-116.322-2.941-127.302z"/></svg>
+                        </span>
+                            <span class="nav-title">
+                            Bloq
+                        </span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="admin/blog/index.html">Bütün postlar</a>
+                            </li>
+                            <li>
+                                <a href="admin/blog/add.html">Əlavə et</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                        <span class="nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                 style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5l-8-5V6l8 5l8-5v2z"
+                                    fill="currentColor"></path></svg>
+                        </span>
+                            <span class="nav-title">
+                            Communication
+                        </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                        <span class="nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                 style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                    d="M4 10h3v7H4zm6.5 0h3v7h-3zM2 19h20v3H2zm15-9h3v7h-3zm-5-9L2 6v2h20V6z"
+                                    fill="currentColor"></path></svg>
+                        </span>
+                            <span class="nav-title">
+                            School
+                        </span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">School information</a>
+                            </li>
+                            <li>
+                                <a href="#">Marking Periods</a>
+                            </li>
+                            <li>
+                                <a href="#">Calendars</a>
+                            </li>
+                            <li>
+                                <a href="#">Notices</a>
+                            </li>
+                            <li>
+                                <a href="#">Mental health info</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">
+                        <span class="nav-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                 style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                    d="M8 16h8v2H8zm0-4h8v2H8zm6-10H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"
+                                    fill="currentColor"></path></svg>
+                        </span>
+                            <span class="nav-title">
+                            Admissions
+                        </span>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#">Application Forms</a>
+                            </li>
+                            <li>
+                                <a href="#">Applicants</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header>
+            <div class="container-fluid">
+                <button type="button" class="btn" id="mobile-sidebar-toggler">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="d-flex">
+                    <div class="user-info">
+                        <h3></h3>
+                    </div>
+                    <div class="tools">
+                        <ul>
+                            <li>
+                                <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                                        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                         viewBox="0 0 24 24"
+                                         style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);">
+                                        <path opacity=".3"
+                                              d="M12 6.5c-2.49 0-4 2.02-4 4.5v6h8v-6c0-2.48-1.51-4.5-4-4.5z"
+                                              fill="currentColor"></path>
+                                        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
+                                              fill="currentColor"></path>
+                                    </svg>
+                                </button>
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                                     aria-labelledby="offcanvasNavbarLabel">
+                                    <div class="offcanvas-header">
+                                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Notifications</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                                aria-label="Close">
+                                            <i class="fas fa-close"></i>
+                                        </button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <span class="content">
+                                                        <p>Billing and Fee management is now available as a beta release!</p>
+                                                        <span>January 18, 2024</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <span class="content">
+                                                        <p>Billing and Fee management is now available as a beta release!</p>
+                                                        <span>January 18, 2024</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <span class="content">
+                                                        <p>Billing and Fee management is now available as a beta release!</p>
+                                                        <span>January 18, 2024</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <span class="content">
+                                                        <p>Billing and Fee management is now available as a beta release!</p>
+                                                        <span>January 18, 2024</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <span class="content">
+                                                        <p>Billing and Fee management is now available as a beta release!</p>
+                                                        <span>January 18, 2024</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <span class="content">
+                                                        <p>Billing and Fee management is now available as a beta release!</p>
+                                                        <span>January 18, 2024</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">
+                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <span class="content">
+                                                        <p>Billing and Fee management is now available as a beta release!</p>
+                                                        <span>January 18, 2024</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown">
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                         viewBox="0 0 24 24"
+                                         style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg); vertical-align: -0.125em;">
+                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"></path>
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu create-menu">
+                                    <li>
+                                        <a href="#">
+                                            <span class="menu-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em"
+                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                                     style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                                        opacity=".3" d="M6.29 6l5.21-2.74L16.71 6z"
+                                                        fill="currentColor"></path><path
+                                                        d="M6.5 10h-2v7h2v-7zm6 0h-2v7h2v-7zm8.5 9H2v2h19v-2zm-2.5-9h-2v7h2v-7zm-7-9L2 6v2h19V6l-9.5-5zM6.29 6l5.21-2.74L16.71 6H6.29z"
+                                                        fill="currentColor"></path></svg>
+                                            </span>
+                                            <span class="menu-title">
+                                                School
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="menu-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em"
+                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                                     style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                                        opacity=".3"
+                                                        d="M7 12.27v3.72l5 2.73l5-2.73v-3.72L12 15zM5.18 9L12 12.72L18.82 9L12 5.28z"
+                                                        fill="currentColor"></path><path
+                                                        d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm5 12.99l-5 2.73l-5-2.73v-3.72L12 15l5-2.73v3.72zm-5-3.27L5.18 9L12 5.28L18.82 9L12 12.72z"
+                                                        fill="currentColor"></path></svg>
+                                            </span>
+                                            <span class="menu-title">
+                                                Student
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="menu-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em"
+                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                                     style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><circle
+                                                        cx="9" cy="8.5" opacity=".3" r="1.5"
+                                                        fill="currentColor"></circle><path opacity=".3"
+                                                                                           d="M4.34 17h9.32c-.84-.58-2.87-1.25-4.66-1.25s-3.82.67-4.66 1.25z"
+                                                                                           fill="currentColor"></path><path
+                                                        d="M9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5S5.5 6.57 5.5 8.5S7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm0 6.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zm11.7-3.19c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35c.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"
+                                                        fill="currentColor"></path></svg>
+                                            </span>
+                                            <span class="menu-title">
+                                                Staff
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="menu-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em"
+                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                                     style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                                        opacity=".3" d="M5 8h14V6H5z" fill="currentColor"></path><path
+                                                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"
+                                                        fill="currentColor"></path></svg>
+                                            </span>
+                                            <span class="menu-title">
+                                                Event
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="menu-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em"
+                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                                     style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                                        opacity=".3"
+                                                        d="M5 5v14h14V5H5zm9 12H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"
+                                                        fill="currentColor"></path><path
+                                                        d="M7 15h7v2H7zm0-4h10v2H7zm0-4h10v2H7zm12-4h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-.14 0-.27.01-.4.04a2.008 2.008 0 0 0-1.44 1.19c-.1.24-.16.49-.16.77v14c0 .27.06.54.16.78s.25.45.43.64c.27.27.62.47 1.01.55c.13.02.26.03.4.03h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.41 0 .75.34.75.75s-.34.75-.75.75s-.75-.34-.75-.75s.34-.75.75-.75zM19 19H5V5h14v14z"
+                                                        fill="currentColor"></path></svg>
+                                            </span>
+                                            <span class="menu-title">
+                                                Notice
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="menu-icon">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="1em" height="1em"
+                                                     preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
+                                                     style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><path
+                                                        opacity=".3" d="M13 13l-3-2.25L7 13V4H6v16h12V4h-5z"
+                                                        fill="currentColor"></path><path
+                                                        d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 4h2v5l-1-.75L9 9V4zm9 16H6V4h1v9l3-2.25L13 13V4h5v16z"
+                                                        fill="currentColor"></path></svg>
+                                            </span>
+                                            <span class="menu-title">
+                                                Course
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                    <img src="../assets/custom/images/profilePic.jpg" alt="">
+                                    <ul class="dropdown-menu">
+                                        <li class="heading">
+                                            <h3>Ibrahim Mammadov</h3>
+                                            <span>Super admin</span>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                     viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                          d="M7.077 16.077q-1.692 0-2.884-1.192Q3 13.693 3 12q0-1.691 1.193-2.885q1.192-1.193 2.884-1.193h3.038q.213 0 .357.144q.143.144.143.357t-.143.356q-.144.143-.357.143h-3.04q-1.267 0-2.171.904Q4 10.73 4 12t.904 2.173q.904.904 2.17.904h3.041q.213 0 .357.144q.143.144.143.357t-.143.356q-.144.143-.357.143zM9 12.5q-.213 0-.356-.144Q8.5 12.212 8.5 12t.144-.356Q8.787 11.5 9 11.5h6q.213 0 .356.144q.144.144.144.357t-.144.356q-.143.143-.356.143zm4.885 3.577q-.213 0-.357-.144q-.143-.144-.143-.357t.143-.356q.144-.143.357-.143h3.04q1.267 0 2.171-.904Q20 13.27 20 12t-.904-2.173q-.904-.904-2.17-.904h-3.041q-.213 0-.357-.144q-.143-.144-.143-.357t.143-.356q.144-.143.357-.143h3.038q1.692 0 2.885 1.192Q21 10.307 21 12q0 1.691-1.193 2.885q-1.192 1.193-2.884 1.193z"/>
+                                                </svg>
+                                                <span>
+                                                    Link
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                     viewBox="0 0 24 24">
+                                                    <path fill="currentColor"
+                                                          d="M7.077 16.077q-1.692 0-2.884-1.192Q3 13.693 3 12q0-1.691 1.193-2.885q1.192-1.193 2.884-1.193h3.038q.213 0 .357.144q.143.144.143.357t-.143.356q-.144.143-.357.143h-3.04q-1.267 0-2.171.904Q4 10.73 4 12t.904 2.173q.904.904 2.17.904h3.041q.213 0 .357.144q.143.144.143.357t-.143.356q-.144.143-.357.143zM9 12.5q-.213 0-.356-.144Q8.5 12.212 8.5 12t.144-.356Q8.787 11.5 9 11.5h6q.213 0 .356.144q.144.144.144.357t-.144.356q-.143.143-.356.143zm4.885 3.577q-.213 0-.357-.144q-.143-.144-.143-.357t.143-.356q.144-.143.357-.143h3.04q1.267 0 2.171-.904Q20 13.27 20 12t-.904-2.173q-.904-.904-2.17-.904h-3.041q-.213 0-.357-.144q-.143-.144-.143-.357t.143-.356q.144-.143.357-.143h3.038q1.692 0 2.885 1.192Q21 10.307 21 12q0 1.691-1.193 2.885q-1.192 1.193-2.884 1.193z"/>
+                                                </svg>
+                                                <span>Link</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="logout-link" class="dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                     viewBox="0 0 256 256">
+                                                    <path fill="currentColor"
+                                                          d="M110 216a6 6 0 0 1-6 6H48a14 14 0 0 1-14-14V48a14 14 0 0 1 14-14h56a6 6 0 0 1 0 12H48a2 2 0 0 0-2 2v160a2 2 0 0 0 2 2h56a6 6 0 0 1 6 6m110.24-92.24l-40-40a6 6 0 0 0-8.48 8.48L201.51 122H104a6 6 0 0 0 0 12h97.51l-29.75 29.76a6 6 0 1 0 8.48 8.48l40-40a6 6 0 0 0 0-8.48"/>
+                                                </svg>
+                                                <span>Çıxış</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="page-content">
+            <div class="breadcrumb">
+                <div class="container-fluid">
+                    <h3>Dashboard</h3>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                         viewBox="0 0 24 24"
+                                         style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg); vertical-align: -0.125em;">
+                                        <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5l5 4.5V18z"
+                                              fill="currentColor"></path>
+                                        <path opacity=".3" d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z"
+                                              fill="currentColor"></path>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    School info
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Calendar
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="page-view">
+                    <div class="card">
+                        <div class="card-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam beatae commodi
+                            consequuntur culpa
+                            cum
+                            cumque debitis dicta doloremque ducimus ex itaque laboriosam laudantium nesciunt reiciendis,
+                            rem
+                            sint
+                            temporibus? Deserunt, praesentium?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="../assets/common/jquery/jquery-3.7.1.min.js"></script>
+<script src="../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/common/axios/axios.min.js"></script>
+<script src="../assets/common/toastify/toastify.js"></script>
+<script src="../assets/custom/js/helpers.js"></script>
+<script src="../assets/custom/js/panel.js"></script>
+</body>
+</html>

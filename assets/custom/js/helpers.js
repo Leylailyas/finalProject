@@ -1,3 +1,5 @@
+const projectFolder = '/frontend'
+
 const customAxios = axios.create({
     baseURL: 'https://65be7c1fdcfcce42a6f28d63.mockapi.io',
 });
