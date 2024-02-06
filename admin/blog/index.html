@@ -2,24 +2,104 @@
 <html lang="az">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="../assets/custom/images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="../assets/common/toastify/toastify.min.css">
+    <link rel="icon" type="image/x-icon" href="../../assets/custom/images/favicon.png">
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/common/toastify/toastify.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="../assets/common/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/custom/css/panel.css">
-    <title>openSIS | Admin Panel</title>
+    <link rel="stylesheet" href="../../assets/common/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/custom/css/panel.css">
+    <title>openSIS | Blog List</title>
 </head>
 <body>
+
+
+<!-- Update Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="updateModalLabel">Post-a düzəliş et</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="update-form">
+                    <div class="mt-3">
+                        <label for="title">Başlıq</label>
+                        <input type="text" id="title" placeholder="Başlıq" class="form-control" required>
+                    </div>
+                    <div class="mt-3">
+                        <label for="image">Şəkil</label>
+                        <input type="url" id="image" placeholder="https://" class="form-control" required>
+                    </div>
+                    <div class="mt-3">
+                        <label for="image">Mətn</label>
+                        <div id="editor">sdqw qwd qw</div>
+                    </div>
+                    <div class="mt-3 d-flex flex-row-reverse">
+                        <button type="submit" class="btn btn-sm btn-primary">Yadda saxla</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Bağla</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Preview Modal -->
+<div class="modal fade" id="previewPostModal" tabindex="-1" aria-labelledby="previewPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="previewPostModalLabel">Post önizlə</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3 class="preview-post-title">Adipisci aliquid aperiam, debitis, deserunt ducimus expedita id</h3>
+                <div class="preview-post-image">
+                    <img class="img-fluid" src="https://picsum.photos/id/239/200/300" alt="">
+                </div>
+                <div class="preview-post-content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut corporis cumque fugit
+                        necessitatibus pariatur repudiandae, voluptatibus voluptatum? Ad alias aliquid aut provident
+                        qui, suscipit vel voluptatem? Doloribus, perspiciatis ut?
+                        <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum dolor eaque earum esse
+                        excepturi, facere fugiat harum ipsum maiores, mollitia nihil nostrum numquam optio, possimus
+                        repudiandae rerum temporibus unde?
+                        <br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magni non quisquam voluptas
+                        voluptatem! Deleniti, eligendi, voluptatum? Ab animi consectetur doloribus, harum, magnam
+                        maiores molestias odit quasi reprehenderit temporibus, veniam.
+                    <hr>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi incidunt, voluptates! Doloremque
+                    hic inventore ipsam odio provident, quis quos repudiandae sit soluta tempora, ullam ut? Harum
+                    impedit ipsa quia quibusdam!
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Bağla</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="page-wrapper">
     <aside>
         <div class="sidebar">
             <div class="header">
                 <div class="logo">
-                    <a href="panel.html">
-                        <img class="full-logo" src="../assets/custom/images/logo-2.jpeg" alt="">
-                        <img class="short-logo" src="../assets/custom/images/short-logo.jpeg" alt="">
+                    <a href="../panel.html">
+                        <img class="full-logo" src="../../assets/custom/images/logo-2.jpeg" alt="">
+                        <img class="short-logo" src="../../assets/custom/images/short-logo.jpeg" alt="">
                     </a>
                 </div>
                 <button type="button" id="sidebar-btn">
@@ -63,10 +143,10 @@
                         </a>
                         <ul>
                             <li>
-                                <a href="blog/index.html">Bütün postlar</a>
+                                <a href="index.html">Bütün postlar</a>
                             </li>
                             <li>
-                                <a href="blog/add.html">Əlavə et</a>
+                                <a href="add.html">Əlavə et</a>
                             </li>
                         </ul>
                     </li>
@@ -183,7 +263,7 @@
                                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -192,7 +272,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -201,7 +281,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -210,7 +290,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -219,7 +299,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -228,7 +308,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -237,7 +317,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -369,7 +449,7 @@
                             <li class="dropdown">
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                    <img src="../assets/custom/images/profilePic.jpg" alt="">
+                                    <img src="../../assets/custom/images/profilePic.jpg" alt="">
                                     <ul class="dropdown-menu">
                                         <li class="heading">
                                             <h3>Ibrahim Mammadov</h3>
@@ -422,7 +502,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="panel.html">
+                                <a href="../panel.html">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                          width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
                                          viewBox="0 0 24 24"
@@ -435,13 +515,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    School info
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Calendar
+                                <a href="index.html">
+                                    Blog List
                                 </a>
                             </li>
                         </ul>
@@ -450,15 +525,188 @@
             </div>
             <div class="container-fluid">
                 <div class="page-view">
-                    <div class="card">
+                    <div class="card custom-table">
+                        <div class="card-header table-header">
+                            <div class="search-section">
+                                <div class="basic-search">
+                                    <input type="text" placeholder="Axtarış...">
+                                    <button type="button" class="btn"><i class="fas fa-search"></i></button>
+                                </div>
+                                <button class="btn" id="advanced-search">
+                                    <i class="fa-solid fa-sliders"></i>
+                                    <span>Advanced Search</span>
+                                </button>
+                            </div>
+                            <div class="tools">
+                                <button type="button" class="btn">
+                                    <img src="../../assets/custom/images/excel.svg" alt="">
+                                </button>
+                                <button type="button" class="btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                         viewBox="0 0 24 24"
+                                         style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);">
+                                        <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
+                                              fill="currentColor"></path>
+                                    </svg>
+                                </button>
+                                <div class="input-group">
+                                    <a href="add.html" class="btn btn-primary">
+                                        <i class="fas fa-plus"></i>
+                                        Əlavə et
+                                    </a>
+                                    <button type="button"
+                                            class="btn btn-light dropdown-toggle dropdown-toggle-split"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                    </ul>
+                                </div>
+                                <div class="dropdown">
+                                    <button id="ellips-btn" class="btn dropdown-toggle" type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam beatae commodi
-                            consequuntur culpa
-                            cum
-                            cumque debitis dicta doloremque ducimus ex itaque laboriosam laudantium nesciunt reiciendis,
-                            rem
-                            sint
-                            temporibus? Deserunt, praesentium?
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="1"
+                                                       id="select_all_posts">
+                                            </div>
+                                        </th>
+                                        <th class="text-center">
+                                            №
+                                        </th>
+                                        <th class="text-center">
+                                            Şəkil
+                                        </th>
+                                        <th class="text-center">
+                                            Başlıq
+                                        </th>
+                                        <th class="text-center">
+                                            Önizlə
+                                        </th>
+                                        <th class="text-center">
+                                            Status
+                                        </th>
+                                        <th class="text-center">
+                                            Əlavə edilib
+                                        </th>
+                                        <th class="text-center">
+                                            Əməliyyat
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="align-middle text-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input post-checkbox" type="checkbox" value="1">
+                                            </div>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            1
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <a class="post-image" href="https://picsum.photos/id/237/200/300"
+                                               target="_blank">
+                                                <img src="https://picsum.photos/id/237/200/300"
+                                                     alt="">
+                                            </a>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                                    data-bs-target="#previewPostModal">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-warning">
+                                                <b>Təsdiq gözləyir</b>
+                                            </span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            04-02-2024 / 18:16
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                                    data-bs-target="#updateModal">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger post-remove-btn">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="align-middle text-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input post-checkbox" type="checkbox" checked
+                                                       value="1">
+                                            </div>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            2
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <a class="post-image" href="https://picsum.photos/id/238/200/300"
+                                               target="_blank">
+                                                <img src="https://picsum.photos/id/238/200/300"
+                                                     alt="">
+                                            </a>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            Adipisci aliquid aperiam, debitis, deserunt ducimus expedita id...
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button" class="btn btn-sm btn-warning">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-success">
+                                                <b>Paylaşılıb</b>
+                                            </span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            04-02-2024 / 15:17
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <button type="button" class="btn btn-sm btn-success">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-danger post-remove-btn">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -467,11 +715,41 @@
     </main>
 </div>
 
-<script src="../assets/common/jquery/jquery-3.7.1.min.js"></script>
-<script src="../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/common/axios/axios.min.js"></script>
-<script src="../assets/common/toastify/toastify.js"></script>
-<script src="../assets/custom/js/helpers.js"></script>
-<script src="../assets/custom/js/panel.js"></script>
+<script src="../../assets/common/jquery/jquery-3.7.1.min.js"></script>
+<script src="../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/common/axios/axios.min.js"></script>
+<script src="../../assets/common/toastify/toastify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.all.min.js"></script>
+<script src="../../assets/custom/js/helpers.js"></script>
+<script src="../../assets/custom/js/panel.js"></script>
+<script>
+    $(function () {
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+
+
+        $('.post-remove-btn').on('click', function (e) {
+            console.log('clicked remove btn')
+            Swal.fire({
+                title: "Bu post-u silmək istədiyinizə əminsiniz ?",
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: "Bəli",
+                cancelButtonText: 'Xeyr',
+                confirmButtonColor: 'red'
+            }).then((result) => {
+                
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    console.log('test')
+                    Swal.fire("Saved!", "", "success");
+                }
+            });
+        })
+    })
+</script>
 </body>
 </html>

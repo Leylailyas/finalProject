@@ -16,6 +16,7 @@ body {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      height: 100%;
       transition: width 300ms ease, min-width 300ms ease;
 
       .header {
@@ -594,8 +595,137 @@ body {
         }
       }
     }
+
+    .custom-table {
+      .table-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+        background: #fff;
+        border: none;
+        border-bottom: 1px solid rgba(82, 63, 105, 0.06);
+
+        .search-section {
+          display: flex;
+          align-items: center;
+
+          .basic-search {
+            input {
+              outline: none;
+              border: none;
+              height: 45px;
+              max-width: 200px;
+              color: #13458f;
+              font-size: 14px;
+              line-height: 21px;
+            }
+
+            .btn {
+              color: #333;
+              font-size: 18px;
+            }
+          }
+
+          #advanced-search {
+            color: #13458f;
+          }
+        }
+
+        .tools {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          button {
+            img, svg {
+              width: 24px;
+              height: 24px;
+            }
+
+            &.btn-light {
+              border-color: #333;
+            }
+
+            &#ellips-btn:after {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .table-responsive {
+        .table {
+          tr {
+            border-color: rgba(82, 63, 105, 0.06);
+          }
+
+          tbody {
+            .post-image {
+              img {
+                width: 80px;
+                height: 80px;
+                border: 1px solid #ddd;
+                padding: 3px;
+                border-radius: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+
   }
 }
+
+
+.btn {
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: rgb(19, 69, 143);
+  border-color: rgb(19, 69, 143);
+}
+
+.btn-warning {
+  color: #fff;
+}
+
+.ck-editor__editable_inline {
+  min-height: 200px;
+}
+
+#previewPostModal {
+  h3.preview-post-title {
+    font-size: 20px;
+  }
+
+  .preview-post-image {
+    width: 100%;
+    max-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 15px 0;
+
+    img {
+      border-radius: 16px;
+    }
+  }
+
+  .preview-post-content {
+    border-top: 1px solid rgba(82, 63, 105, 0.06);
+    padding-top: 15px;
+
+    p {
+      text-align: justify;
+    }
+  }
+
+}
+
 
 @media only screen and (max-width: 991px) {
   .page-wrapper {
