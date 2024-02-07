@@ -33,7 +33,7 @@ $(function () {
         }
     });
 
-    $('.sidebar nav a.nav-link').on('click', function (e) {
+    $('.sidebar nav ul li:has(ul) a.nav-link').on('click', function (e) {
         e.preventDefault()
         const el = $(this)
         const parent = el.parent()

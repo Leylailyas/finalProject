@@ -4,92 +4,15 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../../assets/custom/images/favicon.png">
     <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.min.css">
     <link rel="stylesheet" type="text/css" href="../../assets/common/toastify/toastify.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="../../assets/common/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/custom/css/panel.css">
-    <title>openSIS | Blog List</title>
+    <title>openSIS | Blog Post Create</title>
 </head>
 <body>
-
-
-<!-- Update Modal -->
-<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="updateModalLabel">Post-a düzəliş et</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="update-form">
-                    <div class="mt-3">
-                        <label for="title">Başlıq</label>
-                        <input type="text" id="title" placeholder="Başlıq" class="form-control" required>
-                    </div>
-                    <div class="mt-3">
-                        <label for="image">Şəkil</label>
-                        <input type="url" id="image" placeholder="https://" class="form-control" required>
-                    </div>
-                    <div class="mt-3">
-                        <label for="image">Mətn</label>
-                        <div id="editor"></div>
-                    </div>
-                    <div class="mt-3 d-flex flex-row-reverse">
-                        <button type="submit" class="btn btn-sm btn-primary">Yadda saxla</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Bağla</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Preview Modal -->
-<div class="modal fade" id="previewPostModal" tabindex="-1" aria-labelledby="previewPostModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="previewPostModalLabel">Post önizlə</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <h3 class="preview-post-title">Adipisci aliquid aperiam, debitis, deserunt ducimus expedita id</h3>
-                <div class="preview-post-image">
-                    <img class="img-fluid" src="https://picsum.photos/id/239/200/300" alt="">
-                </div>
-                <div class="preview-post-content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut corporis cumque fugit
-                        necessitatibus pariatur repudiandae, voluptatibus voluptatum? Ad alias aliquid aut provident
-                        qui, suscipit vel voluptatem? Doloribus, perspiciatis ut?
-                        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum dolor eaque earum esse
-                        excepturi, facere fugiat harum ipsum maiores, mollitia nihil nostrum numquam optio, possimus
-                        repudiandae rerum temporibus unde?
-                        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magni non quisquam voluptas
-                        voluptatem! Deleniti, eligendi, voluptatum? Ab animi consectetur doloribus, harum, magnam
-                        maiores molestias odit quasi reprehenderit temporibus, veniam.
-                    <hr>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi incidunt, voluptates! Doloremque
-                    hic inventore ipsam odio provident, quis quos repudiandae sit soluta tempora, ullam ut? Harum
-                    impedit ipsa quia quibusdam!
-                    </p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Bağla</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 <div class="page-wrapper">
@@ -131,7 +54,7 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#l">
                         <span class="nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1000 1000"><path
                                     fill="currentColor"
@@ -520,118 +443,43 @@
                                     Blog List
                                 </a>
                             </li>
+                            <li>
+                                <a href="#">
+                                    Create
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <div class="container-fluid">
                 <div class="page-view">
-                    <div class="card custom-table">
-                        <div class="card-header table-header">
-                            <div class="search-section">
-                                <div class="basic-search">
-                                    <input type="text" placeholder="Axtarış...">
-                                    <button type="button" class="btn"><i class="fas fa-search"></i></button>
-                                </div>
-                                <button class="btn" id="advanced-search">
-                                    <i class="fa-solid fa-sliders"></i>
-                                    <span>Advanced Search</span>
-                                </button>
-                            </div>
-                            <div class="tools">
-                                <button type="button" class="btn">
-                                    <img src="../../assets/custom/images/excel.svg" alt="">
-                                </button>
-                                <button type="button" class="btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
-                                         viewBox="0 0 24 24"
-                                         style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);">
-                                        <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
-                                              fill="currentColor"></path>
-                                    </svg>
-                                </button>
-                                <div class="input-group">
-                                    <a href="add.html" class="btn btn-primary">
-                                        <i class="fas fa-plus"></i>
-                                        Əlavə et
-                                    </a>
-                                    <button type="button"
-                                            class="btn btn-light dropdown-toggle dropdown-toggle-split"
-                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span class="visually-hidden">Toggle Dropdown</span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                    </ul>
-                                </div>
-                                <div class="dropdown">
-                                    <button id="ellips-btn" class="btn dropdown-toggle" type="button"
-                                            data-bs-toggle="dropdown"
-                                            aria-expanded="false">
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="posts-table" class="table">
-                                    <thead>
-                                    <tr>
-                                        <th class="text-center">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="1"
-                                                       id="select_all_posts">
-                                            </div>
-                                        </th>
-                                        <th class="text-center">
-                                            №
-                                        </th>
-                                        <th class="text-center">
-                                            User id
-                                        </th>
-                                        <th class="text-center">
-                                            Şəkil
-                                        </th>
-                                        <th class="text-center">
-                                            Başlıq
-                                        </th>
-                                        <th class="text-center">
-                                            Önizlə
-                                        </th>
-                                        <th class="text-center">
-                                            Status
-                                        </th>
-                                        <th class="text-center">
-                                            Əlavə edilib
-                                        </th>
-                                        <th class="text-center">
-                                            Əməliyyat
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                                <div id="post-table-loading">
-                                    <div class="d-flex justify-content-center">
-                                        <div class="spinner-border" role="status">
-                                            <span class="visually-hidden">Loading...</span>
-                                        </div>
-                                    </div>
+                            <form id="post-create-form">
+                                <div class="mt-3">
+                                    <label for="title">Başlıq</label>
+                                    <input type="text" id="title" class="form-control" placeholder="Başlıq" required>
                                 </div>
-                            </div>
+                                <div class="mt-3">
+                                    <label for="image">Şəkil</label>
+                                    <input type="url" id="image" placeholder="https://" class="form-control" required>
+                                </div>
+                                <div class="mt-3">
+                                    <label for="image">Mətn</label>
+                                    <div id="editor"></div>
+                                </div>
+                                <div class="mt-3 d-flex flex-row-reverse">
+                                    <button type="submit"
+                                            class="btn btn-sm btn-primary d-flex align-items-center justify-content-center">
+                                        Əlavə et
+                                        <div class="m-lg-1 loading">
+                                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                            <span class="visually-hidden" role="status">Loading...</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -644,122 +492,74 @@
 <script src="../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../../assets/common/axios/axios.min.js"></script>
 <script src="../../assets/common/toastify/toastify.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.all.min.js"></script>
 <script src="../../assets/custom/js/helpers.js"></script>
 <script src="../../assets/custom/js/panel.js"></script>
 <script>
     $(function () {
-        function setTableLoading(action = true) {
+        let editor;
+
+        function setLoading(action = true) {
             if (action) {
-                $('#posts-table').hide()
-                $('#post-table-loading').show()
+                $('#post-create-form .btn-primary').prop('disabled', true)
+                $('#post-create-form .loading').show()
             } else {
-                $('#posts-table').show()
-                $('#post-table-loading').hide()
+                $('#post-create-form .btn-primary').prop('disabled', false)
+                $('#post-create-form .loading').hide()
             }
         }
 
-        function setPosts(posts) {
-            let tbody = ''
-            let i = 0
-            posts.map(post => {
-                let status = '<span class="text-warning"><b>Təsdiq gözləyir</b></span>'
-                if (post.status == 'published') {
-                    status = '<span class="text-success"><b>Paylaşılıb</b></span>'
-                }
-                i++
-                tbody += `
-                                                    <tr>
-                                        <td class="align-middle text-center">
-                                            <div class="form-check">
-                                                <input class="form-check-input post-checkbox" type="checkbox" value="1">
-                                            </div>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            ${i}
-                                        </td>
-                                        <td class="align-middle text-center">
-                                        ${post.user_id}
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <a class="post-image" href="${post.image}"
-                                               target="_blank">
-                                                <img src="${post.image}"
-                                                     alt="${post.title}">
-                                            </a>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            ${post.title}
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                                    data-bs-target="#previewPostModal">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            ${status}
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            ${post.created_at}
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <button data-id="${post.id}" type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
-                                                    data-bs-target="#updateModal">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button data-id="${post.id}" type="button" class="btn btn-sm btn-danger post-remove-btn">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                `
-            })
-            $('#posts-table tbody').html(tbody)
-        }
-
-        function getPosts() {
-            setTableLoading(true)
-            $('#posts-table tbody').html('')
-            customAxios.get('/posts')
-                .then(res => {
-                    const posts = res.data
-                    console.log('posts', posts)
-                    setPosts(posts)
-                })
-                .catch(err => {
-                    showError('Xəta')
-                    console.log(err)
-                })
-                .finally(() => setTableLoading(false))
-        }
-
-        getPosts()
-
         ClassicEditor
             .create(document.querySelector('#editor'))
+            .then(newEditor => {
+                editor = newEditor;
+            })
             .catch(error => {
                 console.error(error);
             });
-        $('.post-remove-btn').on('click', function (e) {
-            console.log('clicked remove btn')
-            Swal.fire({
-                title: "Bu post-u silmək istədiyinizə əminsiniz ?",
-                showDenyButton: false,
-                showCancelButton: true,
-                confirmButtonText: "Bəli",
-                cancelButtonText: 'Xeyr',
-                confirmButtonColor: 'red'
-            }).then((result) => {
 
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    console.log('test')
-                    Swal.fire("Saved!", "", "success");
+
+        $('#post-create-form').on('submit', function (e) {
+            e.preventDefault()
+            let user = localStorage.getItem('user')
+            if (user) {
+                user = JSON.parse(user)
+            }
+            const title = $('#title').val()
+            const image = $('#image').val()
+            const text = editor.getData()
+
+            if (!title) {
+                showError('Post başlığı yazılmayıb')
+            } else if (!image) {
+                showError('Post üçün şəkil linki daxil edilməyib')
+            } else if (!text) {
+                showError('Post mətni yazılmayıb')
+            } else if (text.length < 3) {
+                showError('Post mətni ən az 3 simvol olmalıdır')
+            } else {
+                setLoading(true)
+                const post = {
+                    user_id: user.id,
+                    title: title,
+                    image: image,
+                    text: text,
+                    status: 'published',
+                    created_at: new Date()
                 }
-            });
-        })
+                console.log('post', post)
 
+                customAxios.post('/posts', post)
+                    .then(res => {
+                        showSuccess('Uğurla qeydiyyatdan keçdiniz')
+                        console.log('res', res)
+                    })
+                    .catch(err => {
+                        showError('Xəta')
+                        console.log('err', err)
+                    })
+                    .finally(() => setLoading(false))
+            }
+        })
     })
 </script>
 </body>

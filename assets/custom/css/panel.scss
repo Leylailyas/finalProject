@@ -678,7 +678,6 @@ body {
   }
 }
 
-
 .btn {
   border-radius: 4px;
 }
@@ -686,6 +685,15 @@ body {
 .btn-primary {
   background-color: rgb(19, 69, 143);
   border-color: rgb(19, 69, 143);
+
+  .loading {
+    display: none;
+  }
+
+  &:disabled {
+    background-color: rgb(19, 69, 143);
+    border-color: rgb(19, 69, 143);
+  }
 }
 
 .btn-warning {
@@ -724,6 +732,10 @@ body {
     }
   }
 
+}
+
+#post-table-loading {
+  display: none;
 }
 
 
