@@ -26,6 +26,7 @@
             </div>
             <div class="modal-body">
                 <form id="update-form">
+                    <input type="hidden" id="post-id">
                     <div class="mt-3">
                         <label for="title">Başlıq</label>
                         <input type="text" id="title" placeholder="Başlıq" class="form-control" required>
@@ -60,29 +61,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h3 class="preview-post-title">Adipisci aliquid aperiam, debitis, deserunt ducimus expedita id</h3>
+                <h3 class="preview-post-title"></h3>
                 <div class="preview-post-image">
-                    <img class="img-fluid" src="https://picsum.photos/id/239/200/300" alt="">
+                    <img class="img-fluid" src="" alt="">
                 </div>
-                <div class="preview-post-content">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aut corporis cumque fugit
-                        necessitatibus pariatur repudiandae, voluptatibus voluptatum? Ad alias aliquid aut provident
-                        qui, suscipit vel voluptatem? Doloribus, perspiciatis ut?
-                        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum dolor eaque earum esse
-                        excepturi, facere fugiat harum ipsum maiores, mollitia nihil nostrum numquam optio, possimus
-                        repudiandae rerum temporibus unde?
-                        <br>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque magni non quisquam voluptas
-                        voluptatem! Deleniti, eligendi, voluptatum? Ab animi consectetur doloribus, harum, magnam
-                        maiores molestias odit quasi reprehenderit temporibus, veniam.
-                    <hr>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi incidunt, voluptates! Doloremque
-                    hic inventore ipsam odio provident, quis quos repudiandae sit soluta tempora, ullam ut? Harum
-                    impedit ipsa quia quibusdam!
-                    </p>
-                </div>
+                <div class="preview-post-content"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Bağla</button>
@@ -649,6 +632,9 @@
 <script src="../../assets/custom/js/panel.js"></script>
 <script>
     $(function () {
+        let posts = []
+        let editor
+
         function setTableLoading(action = true) {
             if (action) {
                 $('#posts-table').hide()
@@ -659,23 +645,107 @@
             }
         }
 
-        function setPosts(posts) {
-            let tbody = ''
-            let i = 0
-            posts.map(post => {
-                let status = '<span class="text-warning"><b>Təsdiq gözləyir</b></span>'
-                if (post.status == 'published') {
-                    status = '<span class="text-success"><b>Paylaşılıb</b></span>'
+
+        $(document).on('click', '.btn-preview', function (e) {
+            const postId = $(this).data('id')
+            const selectedPost = posts.find(post => post.id == postId)
+            if (selectedPost) {
+                $('#previewPostModal .preview-post-title').text(selectedPost.title)
+                $('#previewPostModal .img-fluid').attr('src', selectedPost.image)
+                $('#previewPostModal .preview-post-content').html(selectedPost.text)
+            }
+        })
+
+        $(document).on('click', '.btn-update', function (e) {
+            const postId = $(this).data('id')
+            const selectedPost = posts.find(post => post.id == postId)
+            if (selectedPost) {
+                $('#update-form #post-id').val(selectedPost.id)
+                $('#update-form #title').val(selectedPost.title)
+                $('#update-form #image').val(selectedPost.image)
+                editor.setData(selectedPost.text)
+            }
+        })
+
+        $('#update-form').on('submit', function (e) {
+            e.preventDefault()
+            const postId = $('#post-id').val()
+            const title = $('#title').val()
+            const image = $('#image').val()
+            const text = editor.getData()
+
+            const post = posts.find(post => post.id == postId)
+
+
+            if (!title) {
+                showError('Post başlığı yazılmayıb')
+            } else if (!image) {
+                showError('Post üçün şəkil linki daxil edilməyib')
+            } else if (!text) {
+                showError('Post mətni yazılmayıb')
+            } else if (text.length < 3) {
+                showError('Post mətni ən az 3 simvol olmalıdır')
+            } else {
+                const newPost = {
+                    id: post.id,
+                    user_id: post.user_id,
+                    title: title,
+                    image: image,
+                    text: text,
+                    created_at: post.created_at,
+                    status: post.status
                 }
-                i++
-                tbody += `
-                                                    <tr>
+
+                customAxios.put('/posts/' + post.id, newPost)
+                    .then(res => {
+                        showSuccess('Post-a düzəliş edildi')
+                        console.log('res', res)
+                        const updateModal = bootstrap.Modal.getInstance(document.getElementById('updateModal'))
+                        updateModal.hide()
+                        updatePost(newPost)
+                    })
+                    .catch(err => {
+                        showError('Xəta')
+                        console.log('err', err)
+                    })
+            }
+        })
+
+        function updatePost(newPost) {
+            const findedPost = $(`#post-id-${newPost.id}`)
+            const postIndex = $(`#post-id-${newPost.id} .post-index`).text()
+            const newPostHtml = setPost(newPost, postIndex)
+            findedPost.replaceWith(newPostHtml)
+
+            const findedPostIndex = posts.findIndex(post => post.id == newPost.id)
+            if (findedPostIndex > -1) {
+                posts[findedPostIndex] = newPost
+            }
+        }
+
+        function setPost(post, i) {
+            let status = '<span class="text-warning"><b>Təsdiq gözləyir</b></span>'
+            const dateObject = new Date(post.created_at);
+            const formattedDate = dateObject.toLocaleString('tr-TR', {
+                day: 'numeric',
+                month: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric'
+            });
+
+            if (post.status == 'published') {
+                status = '<span class="text-success"><b>Paylaşılıb</b></span>'
+            }
+
+            const postHtml = `
+                                                    <tr id="post-id-${post.id}">
                                         <td class="align-middle text-center">
                                             <div class="form-check">
                                                 <input class="form-check-input post-checkbox" type="checkbox" value="1">
                                             </div>
                                         </td>
-                                        <td class="align-middle text-center">
+                                        <td class="align-middle text-center post-index">
                                             ${i}
                                         </td>
                                         <td class="align-middle text-center">
@@ -692,7 +762,9 @@
                                             ${post.title}
                                         </td>
                                         <td class="align-middle text-center">
-                                            <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                            <button type="button"
+                                            data-id="${post.id}"
+                                             class="btn btn-sm btn-warning btn-preview" data-bs-toggle="modal"
                                                     data-bs-target="#previewPostModal">
                                                 <i class="fas fa-eye"></i>
                                             </button>
@@ -701,29 +773,47 @@
                                             ${status}
                                         </td>
                                         <td class="align-middle text-center">
-                                            ${post.created_at}
+                                            ${formattedDate}
                                         </td>
                                         <td class="align-middle text-center">
-                                            <button data-id="${post.id}" type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                            <button
+                                            data-id="${post.id}"
+                                             type="button" class="btn btn-sm btn-success btn-update" data-bs-toggle="modal"
                                                     data-bs-target="#updateModal">
                                                 <i class="fas fa-edit"></i>
                                             </button>
-                                            <button data-id="${post.id}" type="button" class="btn btn-sm btn-danger post-remove-btn">
+                                            <button
+                                            data-id="${post.id}"
+                                             type="button" class="btn btn-sm btn-danger post-remove-btn">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                         </td>
                                     </tr>
                 `
+
+            return postHtml
+        }
+
+
+        function setPosts(posts) {
+            let tbody = ''
+            let i = 0
+            posts.map(post => {
+                i++
+                const postHtml = setPost(post, i)
+                tbody += postHtml
             })
             $('#posts-table tbody').html(tbody)
         }
 
+
         function getPosts() {
             setTableLoading(true)
+            posts = []
             $('#posts-table tbody').html('')
             customAxios.get('/posts')
                 .then(res => {
-                    const posts = res.data
+                    posts = res.data
                     console.log('posts', posts)
                     setPosts(posts)
                 })
@@ -738,10 +828,25 @@
 
         ClassicEditor
             .create(document.querySelector('#editor'))
+            .then(newEditor => {
+                editor = newEditor;
+            })
             .catch(error => {
                 console.error(error);
             });
-        $('.post-remove-btn').on('click', function (e) {
+
+        function removePost(postId) {
+            $(`#post-id-${postId}`).remove()
+
+            const findedPostIndex = posts.findIndex(post => post.id == postId)
+            if (findedPostIndex > -1) {
+                posts.splice(findedPostIndex, 1)
+            }
+        }
+
+        $(document).on('click', '.post-remove-btn', function (e) {
+            const postId = $(this).data('id')
+
             console.log('clicked remove btn')
             Swal.fire({
                 title: "Bu post-u silmək istədiyinizə əminsiniz ?",
@@ -755,7 +860,16 @@
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                     console.log('test')
-                    Swal.fire("Saved!", "", "success");
+
+                    customAxios.delete('/posts/' + postId)
+                        .then(res => {
+                            Swal.fire('Post silindi', "", "success");
+                            removePost(postId)
+                        })
+                        .catch(err => {
+                            showError('Xəta')
+                            console.log('err', err)
+                        })
                 }
             });
         })

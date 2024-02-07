@@ -102,6 +102,7 @@ $(function () {
         }
     })
 
+
     $('#password_type_toggle').on('click', function () {
         const passwordInputType = $('#password').attr('type')
         if (passwordInputType == 'password') {
