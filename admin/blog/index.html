@@ -15,6 +15,18 @@
 </head>
 <body>
 
+<div class="full-page-loading">
+    <div class="loading-container">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Update Modal -->
 <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
@@ -632,8 +644,9 @@
 <script src="../../assets/custom/js/panel.js"></script>
 <script>
     $(function () {
-        let posts = []
         let editor
+        let posts = []
+        let selectedPosts = []
 
         function setTableLoading(action = true) {
             if (action) {
@@ -645,6 +658,34 @@
             }
         }
 
+        function setFullPageLoading(action = true) {
+            if (action) {
+                $('.full-page-loading').show()
+            } else {
+                $('.full-page-loading').hide()
+            }
+        }
+
+        $('#select_all_posts').on('click', function (e) {
+            if ($(this).is(':checked')) {
+                selectedPosts = posts.map(post => post.id)
+                $('#posts-table tbody input:checkbox').prop("checked", true)
+                showSuccess(`${selectedPosts.length} post seçildi`)
+            } else {
+                selectedPosts = []
+                $('#posts-table tbody input:checkbox').prop("checked", false)
+            }
+            console.log('selectedPosts', selectedPosts)
+        })
+
+        $(document).on('click', '.post-checkbox', function (e) {
+            const postId = $(this).val()
+            if ($(this).is(':checked')) {
+                selectedPosts.push(postId)
+            } else {
+                selectedPosts = selectedPosts.filter(p => p != postId)
+            }
+        })
 
         $(document).on('click', '.btn-preview', function (e) {
             const postId = $(this).data('id')
@@ -667,6 +708,72 @@
             }
         })
 
+        $(document).on('click', '.post-remove-btn', function (e) {
+            const postId = $(this).data('id')
+
+            console.log('clicked remove btn')
+            Swal.fire({
+                title: "Bu post-u silmək istədiyinizə əminsiniz ?",
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: "Bəli",
+                cancelButtonText: 'Xeyr',
+                confirmButtonColor: 'red'
+            }).then((result) => {
+
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    setFullPageLoading(true)
+                    console.log('test')
+
+                    customAxios.delete('/posts/' + postId)
+                        .then(res => {
+                            Swal.fire('Post silindi', "", "success");
+                            removePost(postId)
+                        })
+                        .catch(err => {
+                            showError('Xəta')
+                            console.log('err', err)
+                        })
+                        .finally(() => setFullPageLoading(false))
+                }
+            });
+        })
+
+        $(document).on('click', '.btn-confirm', function (e) {
+            Swal.fire({
+                title: "Bu post-u təsdiqləmək istədiyinizə əminsiniz ?",
+                showDenyButton: false,
+                showCancelButton: true,
+                confirmButtonText: "Bəli",
+                cancelButtonText: 'Xeyr',
+                confirmButtonColor: 'red'
+            }).then((result) => {
+
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    setFullPageLoading(true)
+                    const postId = $(this).data('id')
+                    const post = posts.find(post => post.id == postId)
+
+                    post.status = 'published'
+
+                    customAxios.put('/posts/' + post.id, post)
+                        .then(res => {
+                            showSuccess('Post təsdiqləndi')
+                            console.log('res', res)
+                            updatePost(post)
+                        })
+                        .catch(err => {
+                            showError('Xəta')
+                            console.log('err', err)
+                        })
+                        .finally(() => setFullPageLoading(false))
+
+                }
+            });
+        })
+
         $('#update-form').on('submit', function (e) {
             e.preventDefault()
             const postId = $('#post-id').val()
@@ -686,6 +793,7 @@
             } else if (text.length < 3) {
                 showError('Post mətni ən az 3 simvol olmalıdır')
             } else {
+                setFullPageLoading(true)
                 const newPost = {
                     id: post.id,
                     user_id: post.user_id,
@@ -708,6 +816,7 @@
                         showError('Xəta')
                         console.log('err', err)
                     })
+                    .finally(() => setFullPageLoading(false))
             }
         })
 
@@ -738,11 +847,11 @@
                 status = '<span class="text-success"><b>Paylaşılıb</b></span>'
             }
 
-            const postHtml = `
+            let postHtml = `
                                                     <tr id="post-id-${post.id}">
                                         <td class="align-middle text-center">
                                             <div class="form-check">
-                                                <input class="form-check-input post-checkbox" type="checkbox" value="1">
+                                                <input class="form-check-input post-checkbox" type="checkbox" value="${post.id}">
                                             </div>
                                         </td>
                                         <td class="align-middle text-center post-index">
@@ -775,10 +884,17 @@
                                         <td class="align-middle text-center">
                                             ${formattedDate}
                                         </td>
-                                        <td class="align-middle text-center">
-                                            <button
+                                        <td class="align-middle text-center">`
+            if (post.status == 'pending') {
+                postHtml += `<button
                                             data-id="${post.id}"
-                                             type="button" class="btn btn-sm btn-success btn-update" data-bs-toggle="modal"
+                                             type="button" class="btn btn-sm btn-primary btn-confirm">
+                                                <i class="fas fa-check"></i>
+                                            </button>`
+            }
+            postHtml += `                                            <button
+                                            data-id="${post.id}"
+                                             type="button" class="btn btn-sm btn-success btn-update mx-2" data-bs-toggle="modal"
                                                     data-bs-target="#updateModal">
                                                 <i class="fas fa-edit"></i>
                                             </button>
@@ -787,13 +903,10 @@
                                              type="button" class="btn btn-sm btn-danger post-remove-btn">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
-                                        </td>
-                                    </tr>
-                `
+                                            </td></tr>`
 
             return postHtml
         }
-
 
         function setPosts(posts) {
             let tbody = ''
@@ -843,36 +956,6 @@
                 posts.splice(findedPostIndex, 1)
             }
         }
-
-        $(document).on('click', '.post-remove-btn', function (e) {
-            const postId = $(this).data('id')
-
-            console.log('clicked remove btn')
-            Swal.fire({
-                title: "Bu post-u silmək istədiyinizə əminsiniz ?",
-                showDenyButton: false,
-                showCancelButton: true,
-                confirmButtonText: "Bəli",
-                cancelButtonText: 'Xeyr',
-                confirmButtonColor: 'red'
-            }).then((result) => {
-
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    console.log('test')
-
-                    customAxios.delete('/posts/' + postId)
-                        .then(res => {
-                            Swal.fire('Post silindi', "", "success");
-                            removePost(postId)
-                        })
-                        .catch(err => {
-                            showError('Xəta')
-                            console.log('err', err)
-                        })
-                }
-            });
-        })
 
     })
 </script>
