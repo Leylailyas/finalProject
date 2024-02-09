@@ -646,8 +646,10 @@
     $(function () {
         let editor
         let posts = []
-        let users = []
         let selectedPosts = []
+        let user = localStorage.getItem('user')
+        user = JSON.parse(user)
+
 
         function setTableLoading(action = true) {
             if (action) {
@@ -686,8 +688,6 @@
             } else {
                 selectedPosts = selectedPosts.filter(p => p != postId)
             }
-
-
             if (selectedPosts.length == posts.length && posts.length > 0) {
                 $('#select_all_posts').prop("checked", true)
             } else {
@@ -748,40 +748,6 @@
             });
         })
 
-        $(document).on('click', '.btn-confirm', function (e) {
-            Swal.fire({
-                title: "Bu post-u təsdiqləmək istədiyinizə əminsiniz ?",
-                showDenyButton: false,
-                showCancelButton: true,
-                confirmButtonText: "Bəli",
-                cancelButtonText: 'Xeyr',
-                confirmButtonColor: 'red'
-            }).then((result) => {
-
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    setFullPageLoading(true)
-                    const postId = $(this).data('id')
-                    const post = posts.find(post => post.id == postId)
-
-                    post.status = 'published'
-
-                    customAxios.put('/posts/' + post.id, post)
-                        .then(res => {
-                            showSuccess('Post təsdiqləndi')
-                            console.log('res', res)
-                            updatePost(post)
-                        })
-                        .catch(err => {
-                            showError('Xəta')
-                            console.log('err', err)
-                        })
-                        .finally(() => setFullPageLoading(false))
-
-                }
-            });
-        })
-
         $('#update-form').on('submit', function (e) {
             e.preventDefault()
             const postId = $('#post-id').val()
@@ -809,7 +775,7 @@
                     image: image,
                     text: text,
                     created_at: post.created_at,
-                    status: post.status
+                    status: 'pending'
                 }
 
                 customAxios.put('/posts/' + post.id, newPost)
@@ -850,7 +816,6 @@
                 hour: 'numeric',
                 minute: 'numeric'
             })
-            const author = users.find(u => u.id == post.user_id)
 
             if (post.status == 'published') {
                 status = '<span class="text-success"><b>Paylaşılıb</b></span>'
@@ -867,7 +832,7 @@
                                             ${i}
                                         </td>
                                         <td class="align-middle text-center">
-                                        ${author.name} ${author.surname}
+                                        ${user.name} ${user.surname}
                                         </td>
                                         <td class="align-middle text-center">
                                             <a class="post-image" href="${post.image}"
@@ -893,15 +858,8 @@
                                         <td class="align-middle text-center">
                                             ${formattedDate}
                                         </td>
-                                        <td class="align-middle text-center">`
-            if (post.status == 'pending') {
-                postHtml += `<button
-                                            data-id="${post.id}"
-                                             type="button" class="btn btn-sm btn-primary btn-confirm">
-                                                <i class="fas fa-check"></i>
-                                            </button>`
-            }
-            postHtml += `                                            <button
+                                        <td class="align-middle text-center">
+                                        <button
                                             data-id="${post.id}"
                                              type="button" class="btn btn-sm btn-success btn-update mx-2" data-bs-toggle="modal"
                                                     data-bs-target="#updateModal">
@@ -928,31 +886,21 @@
             $('#posts-table tbody').html(tbody)
         }
 
-
-        async function getPosts() {
+        function getPosts() {
             setTableLoading(true)
+
             posts = []
             $('#posts-table tbody').html('')
-            await customAxios.get('/posts')
+            customAxios.get('/posts')
                 .then(res => {
-                    posts = res.data
-                })
-                .catch(err => {
-                    showError('Xəta')
-                    console.log(err)
-                })
-
-            await customAxios.get('/users')
-                .then(res => {
-                    users = res.data
+                    posts = res.data.filter(p => p.user_id == user.id)
+                    setPosts(posts)
                 })
                 .catch(err => {
                     showError('Xəta')
                     console.log(err)
                 })
                 .finally(() => setTableLoading(false))
-
-            setPosts(posts)
         }
 
         getPosts()

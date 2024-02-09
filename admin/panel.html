@@ -12,6 +12,18 @@
     <title>openSIS | Admin Panel</title>
 </head>
 <body>
+<div class="full-page-loading">
+    <div class="loading-container">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+</div>
+
 <div class="page-wrapper">
     <aside>
         <div class="sidebar">
@@ -372,7 +384,7 @@
                                     <img src="../assets/custom/images/profilePic.jpg" alt="">
                                     <ul class="dropdown-menu">
                                         <li class="heading">
-                                            <h3>Ibrahim Mammadov</h3>
+                                            <h3></h3>
                                             <span>Super admin</span>
                                         </li>
                                         <li>
@@ -450,15 +462,47 @@
             </div>
             <div class="container-fluid">
                 <div class="page-view">
-                    <div class="card">
-                        <div class="card-body">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam beatae commodi
-                            consequuntur culpa
-                            cum
-                            cumque debitis dicta doloremque ducimus ex itaque laboriosam laudantium nesciunt reiciendis,
-                            rem
-                            sint
-                            temporibus? Deserunt, praesentium?
+                    <div class="count-boxes">
+                        <div class="box red">
+                            <a href="#">
+                                <span class="box-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
+                                         viewBox="0 0 24 24"
+                                         style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><circle
+                                            cx="9" cy="8.5" opacity=".3" r="1.5" fill="currentColor"></circle><path
+                                            opacity=".3"
+                                            d="M4.34 17h9.32c-.84-.58-2.87-1.25-4.66-1.25s-3.82.67-4.66 1.25z"
+                                            fill="currentColor"></path><path
+                                            d="M9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5S5.5 6.57 5.5 8.5S7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm0 6.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zm11.7-3.19c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35c.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"
+                                            fill="currentColor"></path></svg>
+                                </span>
+                                <span class="box-detail">
+                                    <span class="title">
+                                        İstifadəçilər
+                                    </span>
+                                    <span id="users-count" class="count">
+                                        15
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="box green">
+                            <a href="#">
+                                <span class="box-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                         viewBox="0 0 1000 1000"><path fill="currentColor"
+                                                                       d="M196.099.156C88.379.156.219 88.317.219 196.036v607.851c0 107.72 88.16 195.849 195.88 195.849H803.95c107.72 0 195.849-88.129 195.849-195.849V196.036C999.799 88.316 911.67.156 803.95.156zm338.012 186.777c94.026 7.596 148.647 68.316 155.146 145.948c5.05 39.953 3.637 69.6-2.127 91.418c53.633 1.773 116.39 25.822 120.388 113.098v85.911c-5.561 75.026-32.259 167.679-169.225 187.339c-30.84 4.427-65.452 1.464-110.345 1.157c-45.139-1.19-84.496-.975-118.917-.344c-138.941 2.545-215.468-58.535-216.185-189.28c-1.116-44.494.65-92.734.501-152.581c-.558-37.925-.768-77.544.094-114.381c.267-7.189-.671-15.069 1.22-22.807c5.98-84.295 73.682-133.698 152.706-144.665l186.745-.814zM377.963 304.192c-80.036 13.104-83.991 104.44 0 115.726h151.924c80.036-13.104 83.991-104.44 0-115.726zm-34.508 252.82c-82.395 12.791-83.607 116.536 2.941 127.271l279.1 1.001c81.695-12.682 81.454-116.322-2.941-127.302z"></path></svg>
+                                </span>
+                                <span class="box-detail">
+                                    <span class="title">
+                                        Postlar
+                                    </span>
+                                    <span id="posts-count" class="count">
+                                        15
+                                    </span>
+                                </span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -473,5 +517,30 @@
 <script src="../assets/common/toastify/toastify.js"></script>
 <script src="../assets/custom/js/helpers.js"></script>
 <script src="../assets/custom/js/panel.js"></script>
+<script>
+    $(function () {
+        let posts = []
+        let users = []
+
+        function setCounts() {
+            $('#users-count').text(users.length)
+            $('#posts-count').text(posts.length)
+        }
+
+        async function getData() {
+            await customAxios.get('/posts')
+                .then(res => {
+                    posts = res.data
+                })
+            await customAxios.get('/users')
+                .then(res => {
+                    users = res.data
+                })
+            setCounts()
+        }
+
+        getData()
+    })
+</script>
 </body>
 </html>
