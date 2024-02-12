@@ -1,4 +1,4 @@
-const projectFolder = '/frontend'
+const projectFolder = 'file:///C:/Users/imame/OneDrive/Desktop/frontend'
 
 const customAxios = axios.create({
     baseURL: 'https://65be7c1fdcfcce42a6f28d63.mockapi.io',

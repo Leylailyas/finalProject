@@ -12,6 +12,7 @@
     <title>openSIS | Blog</title>
 </head>
 <body>
+
 <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -86,9 +87,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8">
-                <div class="most-read">
+                <div id="most-read" class="most-read">
                     <h3 class="section-title">Ən çox oxunan</h3>
-                    <div class="post">
+                    <div class="loading">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="most-read-post" class="post">
                         <a href="detail.html" class="post-image">
                             <img src="https://assets-global.website-files.com/6228b11d9d3281d0a792fa09/65527678b264a4d9e8fc742b_effort.png"
                                  alt="">
@@ -96,7 +104,7 @@
                         <a href="#">
                             <h4>Post Category</h4>
                         </a>
-                        <a href="detail.html">
+                        <a class="post-title" href="detail.html">
                             <h3>Post title</h3>
                         </a>
                         <div class="post-content">
@@ -105,14 +113,21 @@
                                 veritatis. Aperiam commodi odit omnis voluptas! Autem, dolor.</p>
                         </div>
                         <ul class="post-footer">
-                            <li>
-                                Tiffani Leilah
+                            <li class="post-author">
+                                <i class="fa-solid fa-user"></i>
+                                <span>
+                                    Tiffani Leilah
+                                </span>
                             </li>
-                            <li>
-                                November 8, 2023
+                            <li class="post-created-at">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span>
+                                    November 8, 2023
+                                </span>
                             </li>
-                            <li>
-                                Baxış sayı: 1897
+                            <li class="post-views">
+                                <i class="fa-solid fa-eye"></i>
+                                Baxış sayı: <span>1897</span>
                             </li>
                         </ul>
                     </div>
@@ -121,79 +136,14 @@
             <div class="col-12 col-lg-4">
                 <div class="feature-posts">
                     <h3 class="section-title">Seçilmiş postlar</h3>
-                    <div class="posts">
-                        <div class="post">
-                            <div class="left">
-                                <a href="#">
-                                    <h4 class="green">Post Category</h4>
-                                </a>
-                                <a href="detail.html">
-                                    <h3>Post Title</h3>
-                                </a>
-                                <ul class="post-footer">
-                                    <li>
-                                        Tiffani Leilah
-                                    </li>
-                                    <li>
-                                        November 8, 2023
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="right">
-                                <a href="detail.html">
-                                    <img src="https://assets-global.website-files.com/6228b11d9d3281d0a792fa09/65527678b264a4d9e8fc742b_effort.png"
-                                         alt="">
-                                </a>
+                    <div class="loading">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
                         </div>
-                        <div class="post">
-                            <div class="left">
-                                <a href="#">
-                                    <h4 class="blue">Post Category</h4>
-                                </a>
-                                <a href="detail.html">
-                                    <h3>Importance of Student Information Systems in Today’s World</h3>
-                                </a>
-                                <ul class="post-footer">
-                                    <li>
-                                        Tiffani Leilah
-                                    </li>
-                                    <li>
-                                        November 8, 2023
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="right">
-                                <a href="detail.html">
-                                    <img src="https://assets-global.website-files.com/6228b11d9d3281d0a792fa09/6553abba533f6df03701742c_Importance%20of%20SIS%20from%20openSIS.png"
-                                         alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="post">
-                            <div class="left">
-                                <a href="#">
-                                    <h4 class="red">Post Category</h4>
-                                </a>
-                                <a href="detail.html">
-                                    <h3>Post Title 3</h3>
-                                </a>
-                                <ul class="post-footer">
-                                    <li>
-                                        Tiffani Leilah
-                                    </li>
-                                    <li>
-                                        November 8, 2023
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="right">
-                                <a href="detail.html">
-                                    <img src="https://assets-global.website-files.com/6228b11d9d3281d0a792fa09/6553b110b3f4f19ec4b1c53b_Student%20intervention%20using%20openSIS.png"
-                                         alt="">
-                                </a>
-                            </div>
-                        </div>
+                    </div>
+                    <div id="feature-posts" class="posts">
                     </div>
                 </div>
             </div>
@@ -220,67 +170,15 @@
         </div>
         <div class="latest-posts">
             <h3 class="section-title">Sonuncu postlar</h3>
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-                    <a href="detail.html" class="post">
-                <span class="post-image">
-                    <img src="https://assets-global.website-files.com/6228b11d9d3281d0a792fa09/6553abba533f6df03701742c_Importance%20of%20SIS%20from%20openSIS.png"
-                         alt="">
-                </span>
-                        <span class="post-content">
-                        <h4 class="post-category blue">
-                            Post category 1
-                        </h4>
-                        <h3 class="post-title">
-                            Post title 1
-                        </h3>
-                        <ul class="post-footer">
-                            <li>Bob Ghosh</li>
-                            <li>October 27, 2023</li>
-                        </ul>
-                        </span>
-                    </a>
+            <div class="loading">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <a href="detail.html" class="post">
-                <span class="post-image">
-                    <img src="https://assets-global.website-files.com/6228b11d9d3281d0a792fa09/6553b110b3f4f19ec4b1c53b_Student%20intervention%20using%20openSIS.png"
-                         alt="">
-                </span>
-                        <span class="post-content">
-                        <h4 class="post-category red">
-                            STUDENT SUCCESS
-                        </h4>
-                        <h3 class="post-title">
-                            Preventing Student Dropout from School Using Technology
-                        </h3>
-                        <ul class="post-footer">
-                            <li>Bob Ghosh</li>
-                            <li>October 20, 2023</li>
-                        </ul>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <a href="detail.html" class="post">
-                <span class="post-image">
-                    <img src="https://assets-global.website-files.com/6228b11d9d3281d0a792fa09/6552db27ca2347feb6bc7969_bilingual.png"
-                         alt="">
-                </span>
-                        <span class="post-content">
-                            <h4 class="post-category green">
-                            Post category 3
-                        </h4>
-                        <h3 class="post-title">
-                            Post title 3
-                        </h3>
-                        <ul class="post-footer">
-                            <li>Tiffani Leilah</li>
-                            <li>November 1, 2023</li>
-                        </ul>
-                        </span>
-                    </a>
-                </div>
+            </div>
+            <div id="latest-posts" class="row">
+
             </div>
         </div>
     </div>
@@ -442,8 +340,224 @@
 </footer>
 <script src="../assets/common/jquery/jquery-3.7.1.min.js"></script>
 <script src="../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/common/axios/axios.min.js"></script>
+<script src="../assets/custom/js/helpers.js"></script>
 <script src="../assets/custom/js/custom.js"></script>
+
 <script>
+    $(function () {
+        let posts = []
+        let users = []
+
+        function setPageLoading(action = true) {
+            if (action) {
+                $('.blog-list-page .loading').show()
+                $('.blog-list-page #most-read-post, .blog-list-page #feature-posts, .blog-list-page #latest-posts').hide()
+            } else {
+                $('.blog-list-page .loading').hide()
+                $('.blog-list-page #most-read-post, .blog-list-page #feature-posts, .blog-list-page #latest-posts').show()
+            }
+        }
+
+        function findAuthor(userId) {
+
+            let author = users.find(u => u.id == userId)
+            if (!author) {
+                author = {
+                    name: 'Naməlum',
+                    surname: ''
+                }
+            }
+
+            return author
+        }
+
+        function setMostReadPost() {
+            const sortByViews = posts.sort(function (a, b) {
+                return b.views - a.views
+            })
+
+            console.log('sortByViews', sortByViews)
+
+            const mostReadedPost = sortByViews[0]
+
+            const postUrl = `detail.html?id=${mostReadedPost.id}`
+
+            const author = findAuthor(mostReadedPost.user_id)
+
+            const dateObject = new Date(mostReadedPost.created_at);
+            const formattedDate = dateObject.toLocaleString('tr-TR', {
+                day: 'numeric',
+                month: 'numeric',
+                year: 'numeric',
+                // hour: 'numeric',
+                // minute: 'numeric'
+            })
+
+            const firstParagraph = $(mostReadedPost.text).filter('p').first()
+
+
+            $('#most-read .post-image').attr('href', postUrl)
+            $('#most-read .post-image img').attr('src', mostReadedPost.image)
+            $('#most-read .post-title').attr('href', postUrl)
+            $('#most-read .post-title h3').text(mostReadedPost.title)
+            $('#most-read .post-content').html(firstParagraph)
+            $('#most-read .post-footer .post-author span').text(`${author.name} ${author.surname}`)
+            $('#most-read .post-footer .post-created-at span').text(formattedDate)
+            $('#most-read .post-footer .post-views span').text(mostReadedPost.views)
+        }
+
+        function setFeaturedPosts() {
+
+            function random(array) {
+                return array.sort(() => Math.random() - 0.5);
+            }
+
+            const randomizedPosts = random([...posts])
+            const featuredPosts = randomizedPosts.slice(0, 3)
+
+            let featuredPostsHtml = ''
+
+            featuredPosts.map(post => {
+
+                const author = findAuthor(post.user_id)
+                const postUrl = `detail.html?id=${post.id}`
+                const dateObject = new Date(post.created_at);
+                const formattedDate = dateObject.toLocaleString('tr-TR', {
+                    day: 'numeric',
+                    month: 'numeric',
+                    year: 'numeric',
+                })
+
+                featuredPostsHtml += `
+                <div class="post">
+                            <div class="left">
+                                <a href="#">
+                                    <h4 class="green">Post Category</h4>
+                                </a>
+                                <a href="${postUrl}">
+                                    <h3>${post.title}</h3>
+                                </a>
+                                <ul class="post-footer">
+                                    <li class="post-author">
+                                        <i class="fa-solid fa-user"></i>
+                                        <span>
+                                        ${author.name} ${author.surname}
+                                </span>
+                                    </li>
+                                    <li class="post-created-at">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        <span>
+                                        ${formattedDate}
+                                </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <a href="${postUrl}">
+                                    <img src="${post.image}"
+                                         alt="">
+                                </a>
+                            </div>
+                        </div>
+                `
+            })
+
+            $('#feature-posts').html(featuredPostsHtml)
+
+        }
+
+        function setLatestPosts() {
+
+            const latestPosts = posts.slice(0, 9)
+
+            let latestPostsHtml = ''
+
+            latestPosts.map(post => {
+
+
+                const author = findAuthor(post.user_id)
+                const postUrl = `detail.html?id=${post.id}`
+                const dateObject = new Date(post.created_at);
+                const formattedDate = dateObject.toLocaleString('tr-TR', {
+                    day: 'numeric',
+                    month: 'numeric',
+                    year: 'numeric',
+                })
+
+                latestPostsHtml += `
+                <div class="col-lg-4 col-md-6 col-12">
+                    <a href="${postUrl}" class="post">
+                <span class="post-image">
+                    <img src="${post.image}"
+                         alt="">
+                </span>
+                        <span class="post-content">
+                        <h4 class="post-category blue">
+                            Post category 1
+                        </h4>
+                        <h3 class="post-title">
+                        ${post.title}
+                        </h3>
+                                <ul class="post-footer">
+                                    <li class="post-author">
+                                        <i class="fa-solid fa-user"></i>
+                                        <span>
+                                        ${author.name} ${author.surname}
+                                </span>
+                                    </li>
+                                    <li class="post-created-at">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        <span>
+                                        ${formattedDate}
+                                </span>
+                                    </li>
+                                </ul>
+                        </span>
+                    </a>
+                </div>
+                `
+            })
+
+
+            $('#latest-posts').html(latestPostsHtml)
+
+        }
+
+
+        function setPosts() {
+            setMostReadPost()
+            setFeaturedPosts()
+            setLatestPosts()
+        }
+
+        async function getPosts() {
+            setPageLoading(true)
+            await customAxios.get('/posts')
+                .then(res => {
+                    // posts = res.data.filter(p => p.status == 'published')
+                    posts = res.data
+                })
+                .catch(err => {
+                    showError('Xəta')
+                    console.log('err', err)
+                })
+
+            await customAxios.get('/users')
+                .then(res => {
+                    users = res.data
+                })
+                .catch(err => {
+                    showError('Xəta')
+                    console.log('err', err)
+                })
+                .finally(() => setPageLoading(false))
+
+            setPosts()
+        }
+
+        getPosts()
+    })
 </script>
 </body>
 </html>

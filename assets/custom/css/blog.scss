@@ -12,7 +12,8 @@
         a.post-image {
           img {
             width: 100%;
-            height: 250px;
+            height: auto;
+            max-height: 400px;
             border-radius: 6px;
             will-change: transform;
             transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0.000deg) rotateY(0.0000deg) rotateZ(0deg) skew(0deg, 0deg);
@@ -58,36 +59,6 @@
           }
         }
 
-        .post-footer {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          gap: 10px;
-          list-style: none;
-          padding: 0;
-          margin: 0;
-
-          li {
-            display: flex;
-            align-items: center;
-            color: #8b92a1;
-            font-size: 14px;
-            line-height: 20px;
-            font-weight: 400;
-
-            &:after {
-              content: '';
-              font-weight: 600;
-              font-family: "Font Awesome 6 Free";
-              font-size: 5px;
-              margin-left: 10px;
-            }
-
-            &:last-child:after {
-              display: none;
-            }
-          }
-        }
       }
     }
 
@@ -139,33 +110,8 @@
             }
 
             .post-footer {
-              display: flex;
-              align-items: center;
-              justify-content: flex-start;
-              gap: 10px;
-              list-style: none;
-              padding: 0;
-              margin: 0;
-
               li {
-                display: flex;
-                align-items: center;
-                color: #8b92a1;
-                font-size: 14px;
-                line-height: 20px;
-                font-weight: 400;
-
-                &:after {
-                  content: '';
-                  font-weight: 600;
-                  font-family: "Font Awesome 6 Free";
-                  font-size: 5px;
-                  margin-left: 10px;
-                }
-
-                &:last-child:after {
-                  display: none;
-                }
+                font-size: 13px;
               }
             }
 
@@ -237,6 +183,45 @@
       }
     }
 
+    .loading {
+      display: none;
+    }
+
+    .post-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        color: #8b92a1;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+
+        i {
+          margin-right: 5px;
+        }
+
+        &:after {
+          content: '';
+          font-weight: 600;
+          font-family: "Font Awesome 6 Free";
+          font-size: 5px;
+          margin-left: 10px;
+        }
+
+        &:last-child:after {
+          display: none;
+        }
+      }
+    }
+
   }
 }
 
@@ -246,6 +231,7 @@
     display: flex;
     flex-direction: column;
     padding: 10px 0;
+    height: 300px;
 
     .post-image {
       margin-bottom: 10px;
@@ -258,6 +244,9 @@
     }
 
     .post-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
 
       .post-category {
         font-size: 13px;
@@ -286,9 +275,9 @@
       }
 
       .post-footer {
+        flex: 1;
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        align-items: flex-end;
         gap: 10px;
         list-style: none;
         padding: 0;
@@ -301,6 +290,10 @@
           font-size: 14px;
           line-height: 20px;
           font-weight: 400;
+
+          i {
+            margin-right: 5px;
+          }
 
           &:after {
             content: '';
@@ -315,6 +308,7 @@
           }
         }
       }
+
     }
   }
 }
