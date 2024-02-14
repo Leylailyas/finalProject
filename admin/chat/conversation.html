@@ -2,36 +2,28 @@
 <html lang="az">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="../assets/custom/images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="../assets/common/toastify/toastify.min.css">
+    <link rel="icon" type="image/x-icon" href="../../assets/custom/images/favicon.png">
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.0.0/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/common/toastify/toastify.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="../assets/common/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/custom/css/panel.css">
-    <title>openSIS | Admin Panel</title>
+    <link rel="stylesheet" href="../../assets/common/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/custom/css/panel.css">
+    <link rel="stylesheet" href="../../assets/custom/css/chat.css">
+    <title>openSIS | Chat</title>
 </head>
 <body>
-<div class="full-page-loading">
-    <div class="loading-container">
-        <div class="spinner">
-            <div class="rect1"></div>
-            <div class="rect2"></div>
-            <div class="rect3"></div>
-            <div class="rect4"></div>
-            <div class="rect5"></div>
-        </div>
-    </div>
-</div>
 
 <div class="page-wrapper">
     <aside>
         <div class="sidebar">
             <div class="header">
                 <div class="logo">
-                    <a href="panel.html">
-                        <img class="full-logo" src="../assets/custom/images/logo-2.jpeg" alt="">
-                        <img class="short-logo" src="../assets/custom/images/short-logo.jpeg" alt="">
+                    <a href="../panel.html">
+                        <img class="full-logo" src="../../assets/custom/images/logo-2.jpeg" alt="">
+                        <img class="short-logo" src="../../assets/custom/images/short-logo.jpeg" alt="">
                     </a>
                 </div>
                 <button type="button" id="sidebar-btn">
@@ -47,8 +39,8 @@
             </div>
             <nav>
                 <ul>
-                    <li class="active">
-                        <a class="nav-link" href="#">
+                    <li>
+                        <a class="nav-link" href="../panel.html">
                         <span class="nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                  width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
@@ -62,8 +54,8 @@
                         </span>
                         </a>
                     </li>
-                    <li>
-                        <a class="nav-link" href="#l">
+                    <li class="active">
+                        <a class="nav-link" href="#">
                         <span class="nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1000 1000"><path
                                     fill="currentColor"
@@ -75,15 +67,16 @@
                         </a>
                         <ul>
                             <li>
-                                <a href="blog/index.html">Bütün postlar</a>
+                                <a href="index.html">Bütün postlar</a>
+
                             </li>
                             <li>
-                                <a href="blog/add.html">Əlavə et</a>
+                                <a href="add.html">Əlavə et</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a class="nav-link" href="chat/index.html">
+                        <a class="nav-link" href="index.html">
                         <span class="nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                  width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"
@@ -195,7 +188,7 @@
                                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -204,7 +197,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -213,7 +206,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -222,7 +215,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -231,7 +224,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -240,7 +233,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -249,7 +242,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="#">
-                                                    <img src="../assets/custom/images/icon-upgrade.svg" alt="">
+                                                    <img src="../../assets/custom/images/icon-upgrade.svg" alt="">
                                                     <span class="content">
                                                         <p>Billing and Fee management is now available as a beta release!</p>
                                                         <span>January 18, 2024</span>
@@ -381,7 +374,7 @@
                             <li class="dropdown">
                                 <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                    <img src="../assets/custom/images/profilePic.jpg" alt="">
+                                    <img src="../../assets/custom/images/profilePic.jpg" alt="">
                                     <ul class="dropdown-menu">
                                         <li class="heading">
                                             <h3></h3>
@@ -434,7 +427,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="panel.html">
+                                <a href="../panel.html">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                          width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
                                          viewBox="0 0 24 24"
@@ -447,13 +440,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    School info
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Calendar
+                                <a href="index.html">
+                                    Chat
                                 </a>
                             </li>
                         </ul>
@@ -462,47 +450,223 @@
             </div>
             <div class="container-fluid">
                 <div class="page-view">
-                    <div class="count-boxes">
-                        <div class="box red">
-                            <a href="#">
-                                <span class="box-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                         width="1em" height="1em" preserveAspectRatio="xMidYMid meet"
-                                         viewBox="0 0 24 24"
-                                         style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);"><circle
-                                            cx="9" cy="8.5" opacity=".3" r="1.5" fill="currentColor"></circle><path
-                                            opacity=".3"
-                                            d="M4.34 17h9.32c-.84-.58-2.87-1.25-4.66-1.25s-3.82.67-4.66 1.25z"
-                                            fill="currentColor"></path><path
-                                            d="M9 12c1.93 0 3.5-1.57 3.5-3.5S10.93 5 9 5S5.5 6.57 5.5 8.5S7.07 12 9 12zm0-5c.83 0 1.5.67 1.5 1.5S9.83 10 9 10s-1.5-.67-1.5-1.5S8.17 7 9 7zm0 6.75c-2.34 0-7 1.17-7 3.5V19h14v-1.75c0-2.33-4.66-3.5-7-3.5zM4.34 17c.84-.58 2.87-1.25 4.66-1.25s3.82.67 4.66 1.25H4.34zm11.7-3.19c1.16.84 1.96 1.96 1.96 3.44V19h4v-1.75c0-2.02-3.5-3.17-5.96-3.44zM15 12c1.93 0 3.5-1.57 3.5-3.5S16.93 5 15 5c-.54 0-1.04.13-1.5.35c.63.89 1 1.98 1 3.15s-.37 2.26-1 3.15c.46.22.96.35 1.5.35z"
-                                            fill="currentColor"></path></svg>
-                                </span>
-                                <span class="box-detail">
-                                    <span class="title">
-                                        İstifadəçilər
-                                    </span>
-                                    <span id="users-count" class="count">
-                                        15
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="box green">
-                            <a href="#">
-                                <span class="box-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                                         viewBox="0 0 1000 1000"><path fill="currentColor"
-                                                                       d="M196.099.156C88.379.156.219 88.317.219 196.036v607.851c0 107.72 88.16 195.849 195.88 195.849H803.95c107.72 0 195.849-88.129 195.849-195.849V196.036C999.799 88.316 911.67.156 803.95.156zm338.012 186.777c94.026 7.596 148.647 68.316 155.146 145.948c5.05 39.953 3.637 69.6-2.127 91.418c53.633 1.773 116.39 25.822 120.388 113.098v85.911c-5.561 75.026-32.259 167.679-169.225 187.339c-30.84 4.427-65.452 1.464-110.345 1.157c-45.139-1.19-84.496-.975-118.917-.344c-138.941 2.545-215.468-58.535-216.185-189.28c-1.116-44.494.65-92.734.501-152.581c-.558-37.925-.768-77.544.094-114.381c.267-7.189-.671-15.069 1.22-22.807c5.98-84.295 73.682-133.698 152.706-144.665l186.745-.814zM377.963 304.192c-80.036 13.104-83.991 104.44 0 115.726h151.924c80.036-13.104 83.991-104.44 0-115.726zm-34.508 252.82c-82.395 12.791-83.607 116.536 2.941 127.271l279.1 1.001c81.695-12.682 81.454-116.322-2.941-127.302z"></path></svg>
-                                </span>
-                                <span class="box-detail">
-                                    <span class="title">
-                                        Postlar
-                                    </span>
-                                    <span id="posts-count" class="count">
-                                        15
-                                    </span>
-                                </span>
-                            </a>
+                    <div class="card">
+                        <div class="chat-container">
+                            <div class="conversations-container">
+                                <div class="header">
+                                    <h5>Ad Soyad</h5>
+                                </div>
+                                <div class="conversations">
+                                    <a class="conversation" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 1
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                    <a class="conversation active" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 2
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                    <a class="conversation" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 3
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                    <a class="conversation" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 4
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                    <a class="conversation" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 5
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                    <a class="conversation" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 6
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                    <a class="conversation" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 7
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                    <a class="conversation" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 8
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                    <a class="conversation" href="conversation.html">
+                                            <span class="image">
+                                                <img src="../../assets/custom/images/chat-user.png" alt="">
+                                            </span>
+                                        <span class="content">
+                                                <span class="header">
+                                                    <span class="username">
+                                                        Ad Soyad 9
+                                                    </span>
+                                                    <span class="time">
+                                                        2024-02-12 10:25
+                                                    </span>
+                                                </span>
+                                                <span class="last-message">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolore, eius iure laborum nam natus nihil placeat praesentium similique, sint unde veniam. Aut expedita itaque minus quia sint tenetur veniam.
+                                                </span>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="chat-body">
+                                <div class="chat-wrapper">
+                                    <div class="header">
+                                        <a href="#">
+                                        <span class="image">
+                                            <img src="../../assets/custom/images/chat-user.png" alt="">
+                                        </span>
+                                            <span class="user-info">
+                                            <span class="username">Ad Soyad 2</span>
+                                            <span class="activity">
+                                                <span class="text-success">Online</span>
+                                            </span>
+                                        </span>
+                                        </a>
+                                        <div class="dropdown">
+                                            <button id="chat-tools" type="button" class="btn dropdown-toggle"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid fa-ellipsis"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="#" class="dropdown-item">Söhbəti sil</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" class="dropdown-item">Blok et</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="messages-container">
+                                        Messages
+                                    </div>
+                                    <div class="footer">
+                                        <button id="smiles" type="button">
+                                            <i class="fa-regular fa-face-smile"></i>
+                                        </button>
+                                        <button id="image" type="button">
+                                            <i class="fa-regular fa-image"></i>
+                                        </button>
+                                        <input type="text" id="message-input" placeholder="Mesaj...">
+                                        <button id="send" type="button">
+                                            <i class="fa-solid fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -511,36 +675,12 @@
     </main>
 </div>
 
-<script src="../assets/common/jquery/jquery-3.7.1.min.js"></script>
-<script src="../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/common/axios/axios.min.js"></script>
-<script src="../assets/common/toastify/toastify.js"></script>
-<script src="../assets/custom/js/helpers.js"></script>
-<script src="../assets/custom/js/panel.js"></script>
-<script>
-    $(function () {
-        let posts = []
-        let users = []
-
-        function setCounts() {
-            $('#users-count').text(users.length)
-            $('#posts-count').text(posts.length)
-        }
-
-        async function getData() {
-            await customAxios.get('/posts')
-                .then(res => {
-                    posts = res.data
-                })
-            await customAxios.get('/users')
-                .then(res => {
-                    users = res.data
-                })
-            setCounts()
-        }
-
-        getData()
-    })
-</script>
+<script src="../../assets/common/jquery/jquery-3.7.1.min.js"></script>
+<script src="../../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/common/axios/axios.min.js"></script>
+<script src="../../assets/common/toastify/toastify.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.4/dist/sweetalert2.all.min.js"></script>
+<script src="../../assets/custom/js/helpers.js"></script>
+<script src="../../assets/custom/js/panel.js"></script>
 </body>
 </html>

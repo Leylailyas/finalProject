@@ -60,7 +60,7 @@
                             Resurslar
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="blog/index.html">Bloqlar</a></li>
+                            <li><a class="dropdown-item" href="index.html">Bloqlar</a></li>
                             <li><a class="dropdown-item" href="#">Dəstək Portalı (Proqram təminatı xidməti)</a></li>
                             <li><a class="dropdown-item" href="#">Dəstək Portalı (Klassik)</a></li>
                         </ul>
@@ -72,7 +72,7 @@
                 <div class="right-menu">
                     <ul>
                         <li>
-                            <a href="login.html">Giriş</a>
+                            <a href="../login.html">Giriş</a>
                         </li>
                         <li>
                             <a href="#">Ödənişsiz sınaq</a>
@@ -535,8 +535,8 @@
             setPageLoading(true)
             await customAxios.get('/posts')
                 .then(res => {
-                    // posts = res.data.filter(p => p.status == 'published')
-                    posts = res.data
+                    posts = res.data.filter(p => p.status == 'published')
+                    // posts = res.data
                 })
                 .catch(err => {
                     showError('Xəta')
