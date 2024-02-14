@@ -54,7 +54,7 @@
                         </span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a class="nav-link" href="#">
                         <span class="nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 1000 1000"><path
@@ -75,7 +75,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="active">
                         <a class="nav-link" href="index.html">
                         <span class="nav-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -451,7 +451,7 @@
             <div class="container-fluid">
                 <div class="page-view">
                     <div class="card">
-                        <div class="chat-container">
+                        <div class="chat-container conversation-page show-conversations">
                             <div class="conversations-container">
                                 <div class="header">
                                     <h5>Ad Soyad</h5>
@@ -624,34 +624,225 @@
                             <div class="chat-body">
                                 <div class="chat-wrapper">
                                     <div class="header">
-                                        <a href="#">
+                                        <div class="left">
+                                            <a href="index.html" id="back-to-chat">
+                                                <i class="fa-solid fa-arrow-left-long"></i>
+                                            </a>
+                                        </div>
+                                        <div class="right">
+                                            <a href="#">
                                         <span class="image">
                                             <img src="../../assets/custom/images/chat-user.png" alt="">
                                         </span>
-                                            <span class="user-info">
+                                                <span class="user-info">
                                             <span class="username">Ad Soyad 2</span>
                                             <span class="activity">
                                                 <span class="text-success">Online</span>
                                             </span>
                                         </span>
-                                        </a>
-                                        <div class="dropdown">
-                                            <button id="chat-tools" type="button" class="btn dropdown-toggle"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa-solid fa-ellipsis"></i>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="#" class="dropdown-item">Söhbəti sil</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" class="dropdown-item">Blok et</a>
-                                                </li>
-                                            </ul>
+                                            </a>
+                                            <div class="dropdown">
+                                                <button id="chat-tools" type="button" class="btn dropdown-toggle"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa-solid fa-ellipsis"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Söhbəti sil</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="dropdown-item">Blok et</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="messages-container">
-                                        Messages
+                                        <div class="messages">
+                                            <div class="message me">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message you">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message me">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status not-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message me">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message you">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message you">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message me">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message you">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message me">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status not-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message me">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message you">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="message you">
+                                                <div class="message-container">
+                                                    <div class="text">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                        Earum
+                                                        neque numquam qui reiciendis vel! Aspernatur, consequatur
+                                                        distinctio dolorum et eveniet, expedita laboriosam qui
+                                                        ratione
+                                                        rem repellat repellendus reprehenderit tempora tenetur.
+                                                    </div>
+                                                    <div class="info">
+                                                        <span class="date">2024-02-13</span>
+                                                        <span class="view-status is-viewed"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                     <div class="footer">
                                         <button id="smiles" type="button">
