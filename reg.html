@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="assets/custom/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="assets/common/toastify/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="assets/common/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/custom/css/auth.css">
+    <title>openSIS | Qeydiyyat</title>
+</head>
+<body>
+
+<div class="date-time-container">
+    <span id="clock"></span>
+    <span id="date"></span>
+</div>
+<div class="auth-page">
+    <div class="card">
+        <div class="card-header">
+            <div class="logo">
+                <img src="assets/custom/images/logo.png" alt="">
+            </div>
+            <h4 class="company-name">
+                Test
+            </h4>
+        </div>
+        <div class="card-body">
+            <form id="reg-form">
+                <div class="form-floating mt-3">
+                    <input type="email" class="form-control" id="email" placeholder="E-mail adres" required>
+                    <label for="email">E-mail adres</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="name" placeholder="Ad" required>
+                    <label for="name">Ad</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="surname" placeholder="Soyad" required>
+                    <label for="surname">Soyad</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="number" value="994" class="form-control" id="phone" placeholder="Telefon" required>
+                    <label for="phone">Telefon</label>
+                </div>
+                <div class="form-floating mt-3">
+                    <input type="text" class="form-control" id="password" placeholder="Şifrə" required>
+                    <label for="password">Şifrə</label>
+                </div>
+                <div class="mt-3 d-flex flex-row-reverse">
+                    <a href="#">Şifrəni unutmusan ?</a>
+                </div>
+                <div class="mt-3 d-flex">
+                    <button type="submit"
+                            class="btn btn-sm btn-primary w-100 d-flex align-items-center justify-content-center">
+                        Qeyd ol
+                        <div class="m-lg-1 loading">
+                            <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                            <span class="visually-hidden" role="status">Loading...</span>
+                        </div>
+                    </button>
+                </div>
+                <hr>
+                <div class="mt-3">
+                    Hesabın var ? <a href="login.html">Daxil ol</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/common/jquery/jquery-3.7.1.min.js"></script>
+<script src="assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/common/axios/axios.min.js"></script>
+<script src="assets/common/toastify/toastify.js"></script>
+<script src="assets/custom/js/helpers.js"></script>
+<script src="assets/custom/js/auth.js"></script>
+</body>
+</html>

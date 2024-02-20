@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../assets/custom/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="../assets/common/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/custom/css/style.css">
+    <link rel="stylesheet" href="../assets/custom/css/blog.css">
+    <title>openSIS | Blog</title>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="../assets/custom/images/logo.png" alt="">
+            </a>
+            <div class="mobile-right">
+                <a href="#">Ödənişsiz sınaq</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Proqram təminatımız
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Özəllikləri</a></li>
+                            <li><a class="dropdown-item" href="#">Memarlıq</a></li>
+                            <li><a class="dropdown-item" href="#">İnteqrasiyalar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Xidmətlər
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">İcra</a></li>
+                            <li><a class="dropdown-item" href="#">Təlim</a></li>
+                            <li><a class="dropdown-item" href="#">Fərdi inteqrasiya</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://google.com">Nəyə görə biz ?</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Resurslar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">Bloqlar</a></li>
+                            <li><a class="dropdown-item" href="#">Dəstək Portalı (Proqram təminatı xidməti)</a></li>
+                            <li><a class="dropdown-item" href="#">Dəstək Portalı (Klassik)</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Qiymətlər</a>
+                    </li>
+                </ul>
+                <div class="right-menu">
+                    <ul>
+                        <li>
+                            <a href="../login.html">Giriş</a>
+                        </li>
+                        <li>
+                            <a href="#">Ödənişsiz sınaq</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="blog-list-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div id="most-read" class="most-read">
+                    <h3 class="section-title">Ən çox oxunan</h3>
+                    <div class="loading">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="most-read-post" class="post">
+                        <a href="detail.html" class="post-image">
+                            <img src="https://assets-global.website-files.com/6228b11d9d3281d0a792fa09/65527678b264a4d9e8fc742b_effort.png"
+                                 alt="">
+                        </a>
+                        <a href="#">
+                            <h4>Post Category</h4>
+                        </a>
+                        <a class="post-title" href="detail.html">
+                            <h3>Post title</h3>
+                        </a>
+                        <div class="post-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium commodi culpa
+                                deserunt dolorem doloremque et expedita id illum, quibusdam repellat, reprehenderit
+                                veritatis. Aperiam commodi odit omnis voluptas! Autem, dolor.</p>
+                        </div>
+                        <ul class="post-footer">
+                            <li class="post-author">
+                                <i class="fa-solid fa-user"></i>
+                                <span>
+                                    Tiffani Leilah
+                                </span>
+                            </li>
+                            <li class="post-created-at">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span>
+                                    November 8, 2023
+                                </span>
+                            </li>
+                            <li class="post-views">
+                                <i class="fa-solid fa-eye"></i>
+                                Baxış sayı: <span>1897</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="feature-posts">
+                    <h3 class="section-title">Seçilmiş postlar</h3>
+                    <div class="loading">
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="feature-posts" class="posts">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="popular-categories">
+            <h3 class="section-title">Popular categories</h3>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="category blue">
+                        <a href="detail.html">School Managment</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="category green">
+                        <a href="#">Teaching and Teacher Tools</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="category red">
+                        <a href="#">Student Success</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="latest-posts">
+            <h3 class="section-title">Sonuncu postlar</h3>
+            <div class="loading">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div id="latest-posts" class="row">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="top">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <h3>
+                        Sosial media kanalınız vasitəsilə bizimlə əlaqə saxlayın
+                    </h3>
+                    <ul class="social-links">
+                        <li>
+                            <a href="#"><img src="../assets/custom/images/sosial-media/fb.svg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="../assets/custom/images/sosial-media/x.svg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="../assets/custom/images/sosial-media/insta.svg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="../assets/custom/images/sosial-media/in.svg" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="../assets/custom/images/sosial-media/yt.svg" alt=""></a>
+                        </li>
+                    </ul>
+                    <form class="start-trial-container">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="İş mail-inizi daxil edin"
+                                   aria-label="İş mail-inizi daxil edin" aria-describedby="button-addon2">
+                            <button class="btn" type="button" id="button-addon">Pulsuz sınağa
+                                başlayın
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li class="column-name">
+                            Özəlliklər
+                        </li>
+                        <li>
+                            <a href="#">Tələbə məlumatları</a>
+                        </li>
+                        <li>
+                            <a href="#">Qəbullar</a>
+                        </li>
+                        <li>
+                            <a href="#">Planlaşdırma</a>
+                        </li>
+                        <li>
+                            <a href="#">Davamiyyət</a>
+                        </li>
+                        <li>
+                            <a href="#">Qiymətləndirmə</a>
+                        </li>
+                        <li>
+                            <a href="#">Akademik Analitika</a>
+                        </li>
+                        <li>
+                            <a href="#">Bütün özəlliklərə bax</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li class="column-name">
+                            Xidmətlər
+                        </li>
+                        <li>
+                            <a href="#">İcra</a>
+                        </li>
+                        <li>
+                            <a href="#">Fərdi inteqrasiya</a>
+                        </li>
+                        <li>
+                            <a href="#">Təlim</a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Niyə openSIS ?</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Qiymətlər</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <ul>
+                        <li class="column-name">
+                            Resurslar
+                        </li>
+                        <li>
+                            <a href="#">Dəstək</a>
+                        </li>
+                        <li>
+                            <a href="#">İnteqrasiya</a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Bizimlə əlaqə</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span>Satışlarla əlaqə</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="container">
+            <div class="left">
+                Copyright © Open Solutions for Education, Inc. (<a href="#">OS4Ed</a>). All Rights Reserved.
+            </div>
+            <ul class="right">
+                <li>
+                    <a href="#">Məxfilik siyasəyi</a>
+                </li>
+                <li>
+                    <a href="#">Xidmət Şərtləri</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="container">
+            <ul>
+                <li class="column-name">
+                    Özəlliklər
+                </li>
+                <li>
+                    <a href="#">Tələbə məlumatları</a>
+                </li>
+                <li>
+                    <a href="#">Qəbullar</a>
+                </li>
+                <li>
+                    <a href="#">Planlaşdırma</a>
+                </li>
+                <li>
+                    <a href="#">Davamiyyət</a>
+                </li>
+                <li>
+                    <a href="#">Qiymətləndirmə</a>
+                </li>
+                <li>
+                    <a href="#">Akademik Analitika</a>
+                </li>
+                <li>
+                    <a href="#">Bütün özəlliklərə bax</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="../assets/common/jquery/jquery-3.7.1.min.js"></script>
+<script src="../assets/common/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/common/axios/axios.min.js"></script>
+<script src="../assets/custom/js/helpers.js"></script>
+<script src="../assets/custom/js/custom.js"></script>
+
+<script>
+    $(function () {
+        let posts = []
+        let users = []
+
+        function setPageLoading(action = true) {
+            if (action) {
+                $('.blog-list-page .loading').show()
+                $('.blog-list-page #most-read-post, .blog-list-page #feature-posts, .blog-list-page #latest-posts').hide()
+            } else {
+                $('.blog-list-page .loading').hide()
+                $('.blog-list-page #most-read-post, .blog-list-page #feature-posts, .blog-list-page #latest-posts').show()
+            }
+        }
+
+        function findAuthor(userId) {
+
+            let author = users.find(u => u.id == userId)
+            if (!author) {
+                author = {
+                    name: 'Naməlum',
+                    surname: ''
+                }
+            }
+
+            return author
+        }
+
+        function setMostReadPost() {
+            const sortByViews = posts.sort(function (a, b) {
+                return b.views - a.views
+            })
+
+            console.log('sortByViews', sortByViews)
+
+            const mostReadedPost = sortByViews[0]
+
+            const postUrl = `detail.html?id=${mostReadedPost.id}`
+
+            const author = findAuthor(mostReadedPost.user_id)
+
+            const dateObject = new Date(mostReadedPost.created_at);
+            const formattedDate = dateObject.toLocaleString('tr-TR', {
+                day: 'numeric',
+                month: 'numeric',
+                year: 'numeric',
+                // hour: 'numeric',
+                // minute: 'numeric'
+            })
+
+            const firstParagraph = $(mostReadedPost.text).filter('p').first()
+
+
+            $('#most-read .post-image').attr('href', postUrl)
+            $('#most-read .post-image img').attr('src', mostReadedPost.image)
+            $('#most-read .post-title').attr('href', postUrl)
+            $('#most-read .post-title h3').text(mostReadedPost.title)
+            $('#most-read .post-content').html(firstParagraph)
+            $('#most-read .post-footer .post-author span').text(`${author.name} ${author.surname}`)
+            $('#most-read .post-footer .post-created-at span').text(formattedDate)
+            $('#most-read .post-footer .post-views span').text(mostReadedPost.views)
+        }
+
+        function setFeaturedPosts() {
+
+            function random(array) {
+                return array.sort(() => Math.random() - 0.5);
+            }
+
+            const randomizedPosts = random([...posts])
+            const featuredPosts = randomizedPosts.slice(0, 3)
+
+            let featuredPostsHtml = ''
+
+            featuredPosts.map(post => {
+
+                const author = findAuthor(post.user_id)
+                const postUrl = `detail.html?id=${post.id}`
+                const dateObject = new Date(post.created_at);
+                const formattedDate = dateObject.toLocaleString('tr-TR', {
+                    day: 'numeric',
+                    month: 'numeric',
+                    year: 'numeric',
+                })
+
+                featuredPostsHtml += `
+                <div class="post">
+                            <div class="left">
+                                <a href="#">
+                                    <h4 class="green">Post Category</h4>
+                                </a>
+                                <a href="${postUrl}">
+                                    <h3>${post.title}</h3>
+                                </a>
+                                <ul class="post-footer">
+                                    <li class="post-author">
+                                        <i class="fa-solid fa-user"></i>
+                                        <span>
+                                        ${author.name} ${author.surname}
+                                </span>
+                                    </li>
+                                    <li class="post-created-at">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        <span>
+                                        ${formattedDate}
+                                </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <a href="${postUrl}">
+                                    <img src="${post.image}"
+                                         alt="">
+                                </a>
+                            </div>
+                        </div>
+                `
+            })
+
+            $('#feature-posts').html(featuredPostsHtml)
+
+        }
+
+        function setLatestPosts() {
+
+            const latestPosts = posts.slice(0, 9)
+
+            let latestPostsHtml = ''
+
+            latestPosts.map(post => {
+
+
+                const author = findAuthor(post.user_id)
+                const postUrl = `detail.html?id=${post.id}`
+                const dateObject = new Date(post.created_at);
+                const formattedDate = dateObject.toLocaleString('tr-TR', {
+                    day: 'numeric',
+                    month: 'numeric',
+                    year: 'numeric',
+                })
+
+                latestPostsHtml += `
+                <div class="col-lg-4 col-md-6 col-12">
+                    <a href="${postUrl}" class="post">
+                <span class="post-image">
+                    <img src="${post.image}"
+                         alt="">
+                </span>
+                        <span class="post-content">
+                        <h4 class="post-category blue">
+                            Post category 1
+                        </h4>
+                        <h3 class="post-title">
+                        ${post.title}
+                        </h3>
+                                <ul class="post-footer">
+                                    <li class="post-author">
+                                        <i class="fa-solid fa-user"></i>
+                                        <span>
+                                        ${author.name} ${author.surname}
+                                </span>
+                                    </li>
+                                    <li class="post-created-at">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                        <span>
+                                        ${formattedDate}
+                                </span>
+                                    </li>
+                                </ul>
+                        </span>
+                    </a>
+                </div>
+                `
+            })
+
+
+            $('#latest-posts').html(latestPostsHtml)
+
+        }
+
+
+        function setPosts() {
+            setMostReadPost()
+            setFeaturedPosts()
+            setLatestPosts()
+        }
+
+        async function getPosts() {
+            setPageLoading(true)
+            await customAxios.get('/posts')
+                .then(res => {
+                    posts = res.data.filter(p => p.status == 'published')
+                    // posts = res.data
+                })
+                .catch(err => {
+                    showError('Xəta')
+                    console.log('err', err)
+                })
+
+            await customAxios.get('/users')
+                .then(res => {
+                    users = res.data
+                })
+                .catch(err => {
+                    showError('Xəta')
+                    console.log('err', err)
+                })
+                .finally(() => setPageLoading(false))
+
+            setPosts()
+        }
+
+        getPosts()
+    })
+</script>
+</body>
+</html>
